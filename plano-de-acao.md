@@ -52,16 +52,12 @@ Quem é, onde está, quantos são.
 
 ## Campo 5 — Papéis
 
-Um por integrante, com responsabilidade verificável. Quando um papel girar, registre no diário.
-
 | Integrante | Papel | O que fica sob sua responsabilidade |
 | ------ | ------ | ------ | 
 | **Matheus** | **Co-Desenvolvedor Técnico e Gestor de Processos** | • **Desenvolvimento Técnico:** Testes de requisição HTTP REST na API de síntese de voz (**Edge TTS**) e validação da geração de roteiros na **Gemini API**.<br />• **Redação e Documentação:** Coautoria das seções técnicas do tutorial e exemplos de código do `README.md`.<br />• **Gestão e Processo:** Atualização semanal das entradas do `diario-de-bordo.md` e auxílio na abordagem ao público externo. |
 | **Joab** | **Co-Desenvolvedor Técnico e Gestor de Alcance** | • **Desenvolvimento Técnico:** Testes de busca automatizada de mídias na **Pexels API** e configuração do gerenciamento de chaves de API (`.env`).<br />• **Redação e Documentação:** Coautoria da explicação didática sobre os conceitos de API/JSON e revisão do tutorial.<br />• **Gestão e Processo:** Condução direta das mensagens com os criadores de conteúdo externos, organização da pasta `evidencias` e manutenção do `evidencias.csv`. |
 
 ## Campo 6 — Cronograma
-
-Uma frase por marco, dizendo o que estará pronto. Nada de "avançar no projeto".
 
 | Data | O que estará pronto | 
 | ------ | ------ | 
