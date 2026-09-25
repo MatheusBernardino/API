@@ -1,0 +1,24 @@
+# Chaves de API e Variáveis de Ambiente (CRÍTICO: nunca subir ao GitHub) 
+.env 
+.env.local 
+*.env 
+
+# Cache do Python 
+__pycache__/
+*.py[cod] 
+*$py.class 
+
+# Ambiente Virtual Python 
+.venv/ 
+venv/ 
+ENV/ 
+env/ 
+# Mídias e Arquivos Gerados nos Testes Locais 
+*.mp3 
+*.mp4 
+*.wav 
+teste_audio.mp3 
+
+# Arquivos do Sistema Operacional 
+.DS_Store 
+Thumbs.db 
