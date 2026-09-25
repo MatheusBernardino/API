@@ -14,11 +14,7 @@ venv/
 ENV/ 
 env/ 
 
-# Mídias e Arquivos Gerados nos Testes Locais 
-*.mp3 
-*.mp4 
-*.wav 
-teste_audio.mp3 
+
 
 # Arquivos do Sistema Operacional 
 .DS_Store 
