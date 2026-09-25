@@ -1,0 +1,1 @@
+# Módulo de scripts do projeto de automação de vídeo
