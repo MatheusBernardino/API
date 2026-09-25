@@ -1,1 +1,7 @@
 data,tipo,indicador,canal,quem_de_fora,valor,descricao,arquivo
+2026-09-25,contagem,execucao de testes,terminal,,1,Teste executado das APIs Edge TTS e Pexels com retorno HTTP 200,evidencias/2026-09-25-execucao-terminal.png 
+2026-09-25,contagem,sintese de audio,script_python,,1,Arquivo de audio MP3 gerado via Edge TTS,evidencias/2026-09-25-teste-audio-edgetts.mp3
+2026-09-25,contagem,sintese de video,script_python,,1,Arquivo de video MP4 gerado via Pexels API,evidencias/2026-09-25-teste-pexels-video.mp4
+2026-09-25,contagem,sintese de imagem,script_python,,1,Arquivo de imagem PNG gerado via Pexels API,evidencias/2026-09-25-teste-pexels-imagem-id-4900859.png
+2026-09-25,contagem,sintese de imagem,script_python,,1,Arquivo de imagem JPEG gerado via Pexels API,evidencias/2026-09-25-teste-pexels-imagem-id-9784238.jpeg
+
