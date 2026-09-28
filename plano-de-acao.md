@@ -10,17 +10,17 @@
 Criadores de conteúdo independentes e editores iniciantes que desejam produzir vídeos automatizados (canais dark) enfrentam barreiras técnicas e de alto custo para integrar e consumir APIs de geração de roteiro, síntese de voz e acervo de mídias.
 
 ## Campo 2 — O público externo
-Quem é, onde está, quantos são.
 
-- **Quem é:** Editores e criadores de vídeos automatizados para redes sociais (YouTube, TikTok, Instagram).
-- **Duas ou três pessoas reais desse grupo:**
-- **Já falamos com alguma? Quando falaremos?** Primeiro contato em setembro (entre 18/09 e 25/09) para mapeamento inicial de dúvidas e envio do rascunho/final.
+- **Quem é:** Editores e criadores de vídeos automatizados para redes sociais (YouTube , TikTok, Instagram).
+- **Duas ou três pessoas reais desse grupo:** Mapeamos os perfis @oLoboShortsBR(https://www.youtube.com/channel/UC04W7X4rqfYD04W_X_jQLfg), @seeanimais(https://www.youtube.com/channel/UCymQ_SeSgWUd4y8w2EVxiYQ) no YouTube e @estranhascuriosidade(https://www.tiktok.com/@estranhascuriosidade) no TikTok.
+- **Já falamos com alguma? Quando falaremos?:**  Entraremos em contato via DM/e-mail após o Marco 1, apresentando o gerador para coletar feedback.
 - **Como essa pessoa vai descobrir que o produto existe:** Através do repositório aberto no GitHub, compartilhamento em comunidades digitais de criadores e envio direto aos contatos mapeados.
 
 ## Campo 3 — Trilha e produto
 
-- **O que é, em uma frase que caiba num tuíte, e onde ficará publicado:** Um guia e tutorial interativo (Trilha B) publicado em repositório aberto no GitHub que ensina criadores de conteúdo independentes a consumir e integrar APIs gratuitas de síntese de voz (Edge TTS), busca de mídias de fundo (Pexels API) e geração de roteiros para canais dark.
-- **O que NÃO faz parte:** Não inclui o desenvolvimento de um software de edição de vídeo próprio, a criação de avatares virtuais 2D/3D (VTubers) ou a contratação de APIs pagas de renderização.
+- **O que é e onde ficará publicado:** Um guia e tutorial interativo (Trilha B) publicado em repositório aberto no GitHub que ensina criadores de conteúdo independentes a consumir e integrar APIs gratuitas de síntese de voz (Edge TTS), busca de mídias de fundo (Pexels API) e geração de roteiros para canais dark.
+- **O que NÃO faz parte:**  Não inclui o desenvolvimento de um software de edição de vídeo próprio, a criação de avatares virtuais 2D/3D (VTubers) ou a contratação de APIs pagas de renderização.
+  
 ## Campo 4 — Fontes de dados
 
 ##### Fonte 1: Síntese de Voz (Text-to-Speech) 
