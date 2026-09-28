@@ -28,7 +28,7 @@ Criadores de conteúdo independentes e editores iniciantes que desejam produzir 
 | ------ | ------ | 
 | Nome e órgão | **Microsoft Edge TTS** (Serviço de síntese de voz via biblioteca Python `edge-tts`) | 
 | Endereço | `https://pypi.org/project/edge-tts/` | 
-| Licença — e o que ela permite ao nosso produto | Gratuita e de acesso aberto (sem necessidade de chave de API ou cadastro); permite conversão de texto em áudio sem custos para o público. | 
+| Licença — e o que ela permite ao nosso produto | A biblioteca Python possui licença MIT (código aberto). O serviço subjacente consome a API do Microsoft Edge gratuitamente (sem necessidade de chave). Como o serviço em si não possui termos comerciais 100% explícitos da Microsoft, o uso é recomendado para fins educacionais, pessoais e de prototipagem. | 
 | Atualização — periodicidade declarada e data do dado mais recente | Conversão executada em tempo real sob demanda. | 
 | Dado pessoal? — se sim, granularidade e o que será agregado | Não. Processa apenas o texto digitado do roteiro. |
 
@@ -37,7 +37,7 @@ Criadores de conteúdo independentes e editores iniciantes que desejam produzir 
 | ------ | ------ | 
 | Nome e órgão | **Pexels API** (Pexels) | 
 | Endereço | `https://www.pexels.com/api/documentation/` | 
-| Licença — e o que ela permite ao nosso produto | Licença Pexels gratuita para uso pessoal e comercial (via chave de API gratuita); permite busca automatizada de fotos e vídeos em HD. | 
+| Licença — e o que ela permite ao nosso produto | Licença Pexels (Royalty-Free gratuita para uso pessoal e comercial via chave de API). Permite busca automatizada de fotos e vídeos em HD. Exige/recomenda a atribuição do criador (créditos ao fotógrafo e link de origem), boas práticas que serão ensinadas no tutorial do nosso guia. | 
 | Atualização — periodicidade declarada e data do dado mais recente | Acervo atualizado continuamente pela plataforma. | 
 | Dado pessoal? — se sim, granularidade e o que será agregado | Não. Processa apenas palavras-chave de busca (ex: "tecnologia", "natureza"). |
 
