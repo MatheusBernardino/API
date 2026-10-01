@@ -4,4 +4,5 @@ data,tipo,indicador,canal,quem_de_fora,valor,descricao,arquivo
 2026-09-25,contagem,sintese de video,script_python,,1,Arquivo de video MP4 gerado via Pexels API,evidencias/2026-09-25-teste-pexels-video.mp4
 2026-09-25,contagem,sintese de imagem,script_python,,1,Arquivo de imagem PNG gerado via Pexels API,evidencias/2026-09-25-teste-pexels-imagem-id-4900859.png
 2026-09-25,contagem,sintese de imagem,script_python,,1,Arquivo de imagem JPEG gerado via Pexels API,evidencias/2026-09-25-teste-pexels-imagem-id-9784238.png
-
+2026-10-01,contagem,execucao de testes,script_python,,1,Video gerado no teste do pipeline principal a partir da sintese de audio e imagens,evidencias/2026-10-01-video_teste_resultado.mp4
+2026-10-01,contagem,execucao de testes,terminal,,1,Teste executado no terminal do pipeline principal,evidencias/2026-10-01-execucao-teste-pipeline-terminal.png
