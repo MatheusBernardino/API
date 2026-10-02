@@ -1,4 +1,4 @@
-# Guia de Automação para Canais Dark (Edge TTS + Pexels API)
+# Guia de Automação para Canais Dark (Edge TTS + Pexels API + Gemini AI)
 
 Um guia e conjunto de scripts em Python para automatizar a criação de conteúdo para canais dark, realizando síntese de voz gratuita e busca automatizada de mídias de fundo via API.
 
@@ -33,14 +33,22 @@ pip install -r requirements.txt
 ```
 
 4. Configure as variáveis de ambiente:
-Copie o arquivo .env.example para .env e insira sua chave do Pexels:
+Copie o arquivo `.env.example` para `.env` e insira as suas chaves de API reais (Pexels e Google Gemini):
 ```env
-PEXELS_API_KEY=sua_chave_aqui
+PEXELS_API_KEY=sua_chave_pexels_aqui
+GEMINI_API_KEY=sua_chave_gemini_aqui
 ```
 
-5. Execute os scripts de teste:
+5. Execute os scripts do projeto:
+O projeto agora inclui um gerador interativo de roteiros com IA, além dos scripts de teste.
 ```bash
+# Para gerar um roteiro de vídeo (interativo):
+python src/gerador_roteiro.py
+
+# Para testar a síntese de voz (TTS):
 python src/teste_edge_tts.py
+
+# Para testar a busca de vídeos/imagens:
 python src/teste_pexels.py
 ```
 
@@ -49,8 +57,9 @@ python src/teste_pexels.py
 
 | Fonte | Órgão / Plataforma | Endereço | Data do dado / Periodicidade |
 | :-- | :-- | :-- | :-- |
-| *Síntese de Voz* | Microsoft Edge TTS (via biblioteca edge-tts) | https://pypi.org/project/edge-tts/ | Tempo real (sob demanda) |
-| *Mídias de Fundo* | Pexels API | https://www.pexels.com/api/ | Acervo atualizado continuamente (2026) |
+| *Síntese de Voz* | Microsoft Edge TTS (via edge-tts) | https://pypi.org/project/edge-tts/ | Tempo real (sob demanda) |
+| *Mídias de Fundo* | Pexels API | https://www.pexels.com/api/ | Acervo atualizado continuamente |
+| *Geração de Roteiros* | Google Gemini API (via google-genai) | https://ai.google.dev/ | Tempo real (IA Generativa) |
 
 ## Licença
 
