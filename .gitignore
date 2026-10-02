@@ -14,7 +14,8 @@ venv/
 ENV/ 
 env/ 
 
-
+# Pasta de Arquivos Gerados 
+temp_media/
 
 # Arquivos do Sistema Operacional 
 .DS_Store 
