@@ -1,4 +1,4 @@
-# Guia de Automação para Canais Dark (Edge TTS + Pexels API)
+# Guia de Automação para Canais Dark (Edge TTS + Pexels API + Gemini AI)
 
 Um guia e conjunto de scripts em Python para automatizar a criação de conteúdo para canais dark, realizando síntese de voz gratuita e busca automatizada de mídias de fundo via API.
 
@@ -33,15 +33,26 @@ pip install -r requirements.txt
 ```
 
 4. Configure as variáveis de ambiente:
-Copie o arquivo .env.example para .env e insira sua chave do Pexels:
+Copie o arquivo `.env.example` para `.env` e insira as suas chaves de API reais (Pexels e Google Gemini):
 ```env
-PEXELS_API_KEY=sua_chave_aqui
+PEXELS_API_KEY=sua_chave_pexels_aqui
+GEMINI_API_KEY=sua_chave_gemini_aqui
 ```
 
-5. Execute os scripts de teste:
+5. Execute os scripts do projeto:
+O projeto agora inclui um gerador interativo de roteiros com IA, além dos scripts de teste.
 ```bash
+# Para gerar um roteiro de vídeo (interativo):
+python src/gerador_roteiro.py
+
+# Para testar a síntese de voz (TTS):
 python src/teste_edge_tts.py
+
+# Para testar a busca de vídeos/imagens:
 python src/teste_pexels.py
+
+# Para testar a pipeline de renderização final (áudio + vídeo):
+python src/teste_pipeline.py
 ```
 
 
@@ -49,8 +60,9 @@ python src/teste_pexels.py
 
 | Fonte | Órgão / Plataforma | Endereço | Data do dado / Periodicidade |
 | :-- | :-- | :-- | :-- |
-| *Síntese de Voz* | Microsoft Edge TTS (via biblioteca edge-tts) | https://pypi.org/project/edge-tts/ | Tempo real (sob demanda) |
-| *Mídias de Fundo* | Pexels API | https://www.pexels.com/api/ | Acervo atualizado continuamente (2026) |
+| *Síntese de Voz* | Microsoft Edge TTS (via edge-tts) | https://pypi.org/project/edge-tts/ | Tempo real (sob demanda) |
+| *Mídias de Fundo* | Pexels API | https://www.pexels.com/api/ | Acervo atualizado continuamente |
+| *Geração de Roteiros* | Google Gemini API (via google-genai) | https://ai.google.dev/ | Tempo real (IA Generativa) |
 
 ## Licença
 
@@ -59,8 +71,8 @@ python src/teste_pexels.py
 
 ## O que este produto não faz
 
-- Não realiza a edição final nem a renderização completa do vídeo com efeitos visuais avançados (foca no consumo automatizado das APIs e download dos assets).
-- Exige uma chave de API própria do Pexels configurada no arquivo .env.
+- Não realiza edições com **efeitos visuais avançados** (transições complexas, legendas animadas 3D). Ele foca na automatização do fluxo base (gerar script -> TTS -> baixar vídeos -> montagem e renderização básica automatizada).
+- Exige chaves de API próprias (Pexels e Google Gemini) configuradas no arquivo `.env`.
 
 ## Contato
 Equipe do Projeto (UFC - CC0464):
@@ -83,6 +95,6 @@ Equipe do Projeto (UFC - CC0464):
 
 ## Como adaptar para outro contexto
 Para adaptar o projeto para outro nicho de conteúdo ou canal:
-1. *Alterar o nicho visual:* Modifique o parâmetro query no arquivo src/teste_pexels.py para buscar temas específicos (ex: "natureza", "finanças", "espaço").
-2. *Alterar a voz ou idioma:* Modifique o texto do roteiro e a voz no arquivo src/teste_edge_tts.py (você pode alternar entre vozes como pt-BR-FranciscaNeural, pt-BR-AntonioNeural, etc.).
-3. *Pipeline de Edição:* Conecte as mídias geradas (áudios .mp3 e vídeos .mp4) a ferramentas como FFmpeg, MoviePy, CapCut ou DaVinci Resolve para renderização automatizada.
+1. *Alterar o nicho visual/tema:* Modifique o parâmetro no script iterativo `src/gerador_roteiro.py` ou os termos de busca no `src/teste_pipeline.py`.
+2. *Alterar a voz ou idioma:* Modifique o parâmetro `nome_voz` no arquivo `src/fala.py` (você pode alternar entre vozes do Edge TTS como `pt-BR-FranciscaNeural`, `pt-BR-AntonioNeural`, etc.).
+3. *Pipeline de Edição:* A montagem básica já ocorre via `MoviePy` no `src/video.py`. Você pode modificar esse arquivo para plugar lógicas adicionais ou usar o conteúdo bruto baixado no `temp_media/` em editores profissionais (CapCut, Premiere).

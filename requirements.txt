@@ -6,6 +6,9 @@ edge-tts>=6.1.0
 # Gerenciamento de variáveis de ambiente (.env)
 python-dotenv>=1.0.0
 
+# Geração de Roteiros e Comunicação com IA
+google-genai>=0.1.0
+
 # Edição e composição de vídeo
 moviepy>=2.0.0
 pillow>=10.0.0
