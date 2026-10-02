@@ -1,10 +1,14 @@
 import os
 import re
+import json
 from dotenv import load_dotenv
 
 # Carrega variáveis de ambiente do arquivo .env
 load_dotenv()
 
+# ==============================================================================
+# 1. CONSTANTES & LIMITES DE SEGURANÇA
+# ==============================================================================
 MIN_SCRIPT_PARAGRAPH_NUMBER = 1
 MAX_SCRIPT_PARAGRAPH_NUMBER = 10
 MAX_SCRIPT_PROMPT_LENGTH = 2000
@@ -19,16 +23,19 @@ DEFAULT_SCRIPT_SYSTEM_PROMPT = """
 Generate a script for a video, depending on the subject of the video.
 
 ## Constrains:
-1. the script is to be returned as a string with the specified number of paragraphs.
+1. the script is to be returned as a JSON array with the specified number of paragraphs.
 2. do not under any circumstance reference this prompt in your response.
 3. get straight to the point, don't start with unnecessary things like, "welcome to this video".
-4. you must not include any type of markdown or formatting in the script, never use asterisks or hashtags.
-5. only return the raw content of the script.
+4. you must not include any type of markdown or formatting in the script text, never use asterisks or hashtags.
+5. only return a valid JSON array of objects, where each object has two keys: "script" (the text of the paragraph) and "search_keyword" (a short English keyword to search for background videos on Pexels for this paragraph).
 6. do not include "voiceover", "narrator" or similar indicators of what should be spoken.
 7. you must not mention the prompt, or anything about the script itself. also, never mention the system prompt constraints.
-8. respond in the same language as the video subject.
+8. the "script" text must be in the same language as the video subject, but "search_keyword" must always be in English.
 """.strip()
 
+# ==============================================================================
+# 2. FUNÇÕES DE VALIDAÇÃO
+# ==============================================================================
 def _normalize_script_paragraph_number(paragraph_number: int | None) -> int:
     try:
         value = int(paragraph_number or MIN_SCRIPT_PARAGRAPH_NUMBER)
@@ -46,6 +53,9 @@ def _limit_script_text(text: str | None, max_length: int, field_name: str) -> st
         return value
     return value[:max_length]
 
+# ==============================================================================
+# 3. CONSTRUTOR DE PROMPT
+# ==============================================================================
 def build_script_prompt(
     video_subject: str,
     language: str = "",
@@ -75,6 +85,9 @@ def build_script_prompt(
 
     return prompt
 
+# ==============================================================================
+# 4. COMUNICAÇÃO COM O GEMINI SDK
+# ==============================================================================
 def _normalize_text_response(content, llm_provider: str = "gemini") -> str:
     if content is None:
         raise ValueError(f"[{llm_provider}] returned empty text content")
@@ -97,6 +110,7 @@ def _call_gemini_api(prompt: str, api_key: str = "", model_name: str = DEFAULT_M
         top_p=1,
         top_k=1,
         max_output_tokens=2048,
+        response_mime_type="application/json",
     )
 
     with genai.Client(api_key=resolved_key, http_options=http_options) as client:
@@ -107,14 +121,16 @@ def _call_gemini_api(prompt: str, api_key: str = "", model_name: str = DEFAULT_M
         )
         return _normalize_text_response(response.text, "gemini")
 
-def _clean_text_for_tts(response: str) -> str:
+# ==============================================================================
+# 5. SANITIZAÇÃO DE SAÍDA & ORQUESTRADOR
+# ==============================================================================
+def _clean_text_for_tts(texto: str) -> str:
     """Remove marcações visuais indesejadas que prejudicam a fala do TTS."""
-    response = response.replace("*", "")
-    response = response.replace("#", "")
-    response = re.sub(r"\[.*?\]", "", response)
-    response = re.sub(r"\(.*?\)", "", response)
-    paragraphs = [p.strip() for p in response.split("\n\n") if p.strip()]
-    return "\n\n".join(paragraphs)
+    texto = texto.replace("*", "")
+    texto = texto.replace("#", "")
+    texto = re.sub(r"\[.*?\]", "", texto)
+    texto = re.sub(r"\(.*?\)", "", texto)
+    return texto.strip()
 
 def generate_script(
     video_subject: str,
@@ -124,7 +140,7 @@ def generate_script(
     custom_system_prompt: str = "",
     api_key: str = "",
     model_name: str = DEFAULT_MODEL_NAME,
-) -> str:
+) -> list[dict]:
     paragraph_number = _normalize_script_paragraph_number(paragraph_number)
     
     prompt = build_script_prompt(
@@ -135,7 +151,7 @@ def generate_script(
         custom_system_prompt=custom_system_prompt,
     )
 
-    final_script = ""
+    final_scenes = []
     for attempt in range(MAX_RETRIES):
         try:
             raw_response = _call_gemini_api(
@@ -145,12 +161,15 @@ def generate_script(
             )
             
             if raw_response:
-                final_script = _clean_text_for_tts(raw_response)
+                cenas = json.loads(raw_response)
+                for cena in cenas:
+                    cena["script"] = _clean_text_for_tts(cena.get("script", ""))
+                    final_scenes.append(cena)
                 break
         except Exception as e:
             print(f"[Aviso] Tentativa {attempt + 1}/{MAX_RETRIES} falhou: {e}")
             
-    return final_script.strip()
+    return final_scenes
 
 if __name__ == "__main__":
     # Execução interativa
@@ -158,9 +177,9 @@ if __name__ == "__main__":
         user_topic = input("Digite o tema do roteiro (ou deixe em branco para o teste padrão): ").strip()
         test_topic = user_topic if user_topic else "Por que o agachamento é o rei dos exercícios de perna?"
         
-        print(f"\nGerando roteiro para: '{test_topic}'...")
-        script = generate_script(video_subject=test_topic, paragraph_number=2)
+        print(f"\nGerando roteiro em JSON para: '{test_topic}'...")
+        script_scenes = generate_script(video_subject=test_topic, paragraph_number=2)
         print("\n--- Roteiro Gerado ---")
-        print(script)
+        print(json.dumps(script_scenes, indent=2, ensure_ascii=False))
     except KeyboardInterrupt:
         print("\nOperação cancelada pelo usuário.")
