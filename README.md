@@ -39,19 +39,19 @@ PEXELS_API_KEY=sua_chave_pexels_aqui
 GEMINI_API_KEY=sua_chave_gemini_aqui
 ```
 
-5. Execute os scripts do projeto:
-O projeto agora inclui um gerador interativo de roteiros com IA, além dos scripts de teste.
+5. Execute o pipeline completo do projeto:
+O projeto inclui um orquestrador que conecta a IA, a síntese de voz e a busca de vídeos automaticamente.
 ```bash
-# Para gerar um roteiro de vídeo (interativo):
+# Para gerar um vídeo completo (pede o tema no terminal):
+python src/main.py
+```
+
+Se preferir testar os componentes de forma isolada:
+```bash
+# Gerar apenas o roteiro em JSON (Gemini):
 python src/gerador_roteiro.py
 
-# Para testar a síntese de voz (TTS):
-python src/teste_edge_tts.py
-
-# Para testar a busca de vídeos/imagens:
-python src/teste_pexels.py
-
-# Para testar a pipeline de renderização final (áudio + vídeo):
+# Testar apenas o fluxo de renderização com dados falsos (Edge TTS + Pexels + FFmpeg):
 python src/teste_pipeline.py
 ```
 
