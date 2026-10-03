@@ -46,6 +46,23 @@ O projeto inclui um orquestrador que conecta a IA, a síntese de voz e a busca d
 python src/main.py
 ```
 
+E o que sai:
+```text
+Digite o tema do vídeo (ou deixe em branco para o padrão): Buracos Negros
+
+[1/3] Gerando roteiro com Gemini para: 'Buracos Negros'...
+[Roteiro] 8 cenas geradas com sucesso!
+
+[2/3] Iniciando produção do vídeo (temporários em: temp_media/run_20261003_104000_buracos_negros)...
+[Cena 1/8] Sintetizando áudio...
+[Cena 1/8] Baixando mídia para a keyword: 'black hole'...
+...
+[Render] Montando e interpolando arquivos via FFmpeg...
+[Sucesso] Vídeo final gerado em: temp_media/run_20261003_104000_buracos_negros/video_final.mp4
+
+[3/3] Pipeline concluído! Abra o arquivo 'temp_media/run_20261003_104000_buracos_negros/video_final.mp4' para assistir.
+```
+
 Se preferir testar os componentes de forma isolada:
 ```bash
 # Gerar apenas o roteiro em JSON (Gemini):
@@ -58,8 +75,8 @@ python src/teste_pipeline.py
 
 ## De onde vêm os dados
 
-| Fonte | Órgão / Plataforma | Endereço | Data do dado / Periodicidade |
-| :-- | :-- | :-- | :-- |
+| Fonte | Órgão | Endereço | Data do dado |
+| :---- | :---- | :---- | :---- |
 | *Síntese de Voz* | Microsoft Edge TTS (via edge-tts) | https://pypi.org/project/edge-tts/ | Tempo real (sob demanda) |
 | *Mídias de Fundo* | Pexels API | https://www.pexels.com/api/ | Acervo atualizado continuamente |
 | *Geração de Roteiros* | Google Gemini API (via google-genai) | https://ai.google.dev/ | Tempo real (IA Generativa) |
