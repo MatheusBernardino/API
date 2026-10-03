@@ -1,3 +1,4 @@
+import os
 from moviepy import (
     AudioFileClip,
     VideoFileClip,
@@ -34,13 +35,20 @@ def ajusta_video_e_audio(
     # Concatena todas as cenas
     clip_final = concatenate_videoclips(clips_prontos, method="compose")
 
+    # Garante que qualquer áudio temporário do MoviePy fique na mesma pasta do vídeo final
+    pasta_destino = os.path.dirname(caminho_saida)
+    temp_audio = os.path.join(pasta_destino, "temp_audio.m4a") if pasta_destino else None
+
     # Renderização via FFmpeg
     clip_final.write_videofile(
         caminho_saida,
         fps=30,
         codec="libx264",
         audio_codec="aac",
+        temp_audiofile=temp_audio,
+        remove_temp=True,
         threads=4,
     )
 
     return caminho_saida
+
