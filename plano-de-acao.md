@@ -7,71 +7,76 @@
 - **Repositório:** https://github.com/MatheusBernardino/API/
 
 ## Campo 1 — O problema
+
 Criadores de conteúdo independentes e editores iniciantes que desejam produzir vídeos automatizados (canais dark) enfrentam barreiras técnicas e de alto custo para integrar e consumir APIs de geração de roteiro, síntese de voz e acervo de mídias.
 
 ## Campo 2 — O público externo
 
 - **Quem é:** Editores e criadores de vídeos automatizados para redes sociais (YouTube , TikTok, Instagram).
 - **Duas ou três pessoas reais desse grupo:** Mapeamos os perfis @oLoboShortsBR(https://www.youtube.com/channel/UC04W7X4rqfYD04W_X_jQLfg), @seeanimais(https://www.youtube.com/channel/UCymQ_SeSgWUd4y8w2EVxiYQ) no YouTube e @estranhascuriosidade(https://www.tiktok.com/@estranhascuriosidade) no TikTok.
-- **Já falamos com alguma? Quando falaremos?:**  Entraremos em contato via DM/e-mail após o Marco 1, apresentando o gerador para coletar feedback.
+- **Já falamos com alguma? Quando falaremos?:** Entraremos em contato via DM/e-mail após o Marco 1, apresentando o gerador para coletar feedback.
 - **Como essa pessoa vai descobrir que o produto existe:** Através do repositório aberto no GitHub, compartilhamento em comunidades digitais de criadores e envio direto aos contatos mapeados.
 
 ## Campo 3 — Trilha e produto
 
 - **O que é e onde ficará publicado:** Um guia e tutorial interativo (Trilha B) publicado em repositório aberto no GitHub que ensina criadores de conteúdo independentes a consumir e integrar APIs gratuitas de síntese de voz (Edge TTS), busca de mídias de fundo (Pexels API) e geração de roteiros para canais dark.
-- **O que NÃO faz parte:**  Não inclui o desenvolvimento de um software de edição de vídeo próprio, a criação de avatares virtuais 2D/3D (VTubers) ou a contratação de APIs pagas de renderização.
-  
+- **O que NÃO faz parte:** Não inclui o desenvolvimento de um software de edição de vídeo próprio, a criação de avatares virtuais 2D/3D (VTubers) ou a contratação de APIs pagas de renderização.
+
 ## Campo 4 — Fontes de dados
 
-##### Fonte 1: Síntese de Voz (Text-to-Speech) 
-| | |
-| ------ | ------ | 
-| Nome e órgão | **Microsoft Edge TTS** (Serviço de síntese de voz via biblioteca Python `edge-tts`) | 
-| Endereço | `https://pypi.org/project/edge-tts/` | 
-| Licença — e o que ela permite ao nosso produto | A biblioteca Python possui licença MIT (código aberto). O serviço subjacente consome a API do Microsoft Edge gratuitamente (sem necessidade de chave). Como o serviço em si não possui termos comerciais 100% explícitos da Microsoft, o uso é recomendado para fins educacionais, pessoais e de prototipagem. | 
-| Atualização — periodicidade declarada e data do dado mais recente | Conversão executada em tempo real sob demanda. | 
-| Dado pessoal? — se sim, granularidade e o que será agregado | Não. Processa apenas o texto digitado do roteiro. |
+##### Fonte 1: Síntese de Voz (Text-to-Speech)
 
-##### Fonte 2: Mídias de Fundo (Stock Footage) 
-| | | 
-| ------ | ------ | 
-| Nome e órgão | **Pexels API** (Pexels) | 
-| Endereço | `https://www.pexels.com/api/documentation/` | 
-| Licença — e o que ela permite ao nosso produto | Licença Pexels (Royalty-Free gratuita para uso pessoal e comercial via chave de API). Permite busca automatizada de fotos e vídeos em HD. Exige/recomenda a atribuição do criador (créditos ao fotógrafo e link de origem), boas práticas que serão ensinadas no tutorial do nosso guia. | 
-| Atualização — periodicidade declarada e data do dado mais recente | Acervo atualizado continuamente pela plataforma. | 
-| Dado pessoal? — se sim, granularidade e o que será agregado | Não. Processa apenas palavras-chave de busca (ex: "tecnologia", "natureza"). |
+|                                                                   |                                                                                                                                                                                                                                                                                                                |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nome e órgão                                                      | **Microsoft Edge TTS** (Serviço de síntese de voz via biblioteca Python `edge-tts`)                                                                                                                                                                                                                            |
+| Endereço                                                          | `https://pypi.org/project/edge-tts/`                                                                                                                                                                                                                                                                           |
+| Licença — e o que ela permite ao nosso produto                    | A biblioteca Python possui licença MIT (código aberto). O serviço subjacente consome a API do Microsoft Edge gratuitamente (sem necessidade de chave). Como o serviço em si não possui termos comerciais 100% explícitos da Microsoft, o uso é recomendado para fins educacionais, pessoais e de prototipagem. |
+| Atualização — periodicidade declarada e data do dado mais recente | Conversão executada em tempo real sob demanda.                                                                                                                                                                                                                                                                 |
+| Dado pessoal? — se sim, granularidade e o que será agregado       | Não. Processa apenas o texto digitado do roteiro.                                                                                                                                                                                                                                                              |
 
-##### Fonte 3: Roteirização (LLM) 
-| | | 
-| ------ | ------ | 
-| Nome e órgão | **Google Gemini API** (Google AI) | 
-| Endereço | `https://ai.google.dev/docs` | 
-| Licença — e o que ela permite ao nosso produto | Cota gratuita para desenvolvedores (Free Tier via API Key); permite geração REST de roteiros estruturados em JSON. | 
-| Atualização — periodicidade declarada e data do dado mais recente | Processamento em tempo real sob demanda. |
-| Dado pessoal? — se sim, granularidade e o que será agregado | Não. Processa apenas prompts genéricos de criação de conteúdo. |
+##### Fonte 2: Mídias de Fundo (Stock Footage)
+
+|                                                                   |                                                                                                                                                                                                                                                                                          |
+| ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nome e órgão                                                      | **Pexels API** (Pexels)                                                                                                                                                                                                                                                                  |
+| Endereço                                                          | `https://www.pexels.com/api/documentation/`                                                                                                                                                                                                                                              |
+| Licença — e o que ela permite ao nosso produto                    | Licença Pexels (Royalty-Free gratuita para uso pessoal e comercial via chave de API). Permite busca automatizada de fotos e vídeos em HD. Exige/recomenda a atribuição do criador (créditos ao fotógrafo e link de origem), boas práticas que serão ensinadas no tutorial do nosso guia. |
+| Atualização — periodicidade declarada e data do dado mais recente | Acervo atualizado continuamente pela plataforma.                                                                                                                                                                                                                                         |
+| Dado pessoal? — se sim, granularidade e o que será agregado       | Não. Processa apenas palavras-chave de busca (ex: "tecnologia", "natureza").                                                                                                                                                                                                             |
+
+##### Fonte 3: Roteirização (LLM)
+
+|                                                                   |                                                                                                                    |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Nome e órgão                                                      | **Google Gemini API** (Google AI)                                                                                  |
+| Endereço                                                          | `https://ai.google.dev/docs`                                                                                       |
+| Licença — e o que ela permite ao nosso produto                    | Cota gratuita para desenvolvedores (Free Tier via API Key); permite geração REST de roteiros estruturados em JSON. |
+| Atualização — periodicidade declarada e data do dado mais recente | Processamento em tempo real sob demanda.                                                                           |
+| Dado pessoal? — se sim, granularidade e o que será agregado       | Não. Processa apenas prompts genéricos de criação de conteúdo.                                                     |
 
 ## Campo 5 — Papéis
 
-| Integrante | Papel | O que fica sob sua responsabilidade |
-| ------ | ------ | ------ | 
-| **Matheus** | **Co-Desenvolvedor Técnico e Gestor de Processos** | • **Desenvolvimento Técnico:** Desenvolvimento e integração do pipeline principal (`main.py`) e dos módulos de síntese de voz (`edge-tts`), busca automatizada de mídias (`Pexels API`) e renderização final do vídeo.<br />• **Redação e Documentação:** Coautoria das seções técnicas e revisão geral do tutorial .<br />• **Gestão e Processo:** Atualização semanal das entradas do `diario-de-bordo.md`, organização da pasta `evidencias`, manutenção do `evidencias.csv` e abordagem ao público externo. |
-| **Joab** | **Co-Desenvolvedor Técnico e Gestor de Alcance** | • **Desenvolvimento Técnico:** Criaçao do módulo de geração de roteiros com uso da **Gemini API**, configuração do gerenciamento seguro das chaves de API (`.env` e `.env.example`).<br />• **Redação e Documentação:** Coautoria da explicação didática sobre os conceitos de API/JSON e exemplos de código do `README.md`<br />• **Gestão e Processo:** Validação da qualidade dos roteiros gerados e testes de usabilidade do fluxo do produto. *Code review*, aprovação e integração de *Pull Requests* na *branch* principal do GitHub |
+| Integrante  | Papel                                              | O que fica sob sua responsabilidade                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ----------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Matheus** | **Co-Desenvolvedor Técnico e Gestor de Processos** | • **Desenvolvimento Técnico:** Desenvolvimento e integração do pipeline principal (`main.py`) e dos módulos de síntese de voz (`edge-tts`), busca automatizada de mídias (`Pexels API`) e renderização final do vídeo.<br />• **Redação e Documentação:** Coautoria das seções técnicas e revisão geral do tutorial .<br />• **Gestão e Processo:** Atualização semanal das entradas do `diario-de-bordo.md`, organização da pasta `evidencias`, manutenção do `evidencias.csv` e abordagem ao público externo.                             |
+| **Joab**    | **Co-Desenvolvedor Técnico e Gestor de Alcance**   | • **Desenvolvimento Técnico:** Criaçao do módulo de geração de roteiros com uso da **Gemini API**, configuração do gerenciamento seguro das chaves de API (`.env` e `.env.example`).<br />• **Redação e Documentação:** Coautoria da explicação didática sobre os conceitos de API/JSON e exemplos de código do `README.md`<br />• **Gestão e Processo:** Validação da qualidade dos roteiros gerados e testes de usabilidade do fluxo do produto. _Code review_, aprovação e integração de _Pull Requests_ na _branch_ principal do GitHub |
 
 ## Campo 6 — Cronograma
 
-| Data | O que estará pronto | 
-| ------ | ------ | 
-| 02/10 (Marco 1) | Plano final aprovado e primeira versão do guia com os exemplos básicos de requisição das APIs em formato de rascunho. | 
-| 13/11 (Marco 2) | Guia completo e funcional de ponta a ponta, permitindo que um usuário externo consiga testar as integrações sozinho. | 
-| 27/11 (Marco 3) | Produto final publicado com documentação (README) completa, diário de bordo consolidado e evidências de alcance salvas. | 
-| 04/12 (Socialização) | Apresentação pública do projeto realizada e folha de presença do público impressa e entregue. | 
+| Data                 | O que estará pronto                                                                                                     |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| 02/10 (Marco 1)      | Plano final aprovado e primeira versão do guia com os exemplos básicos de requisição das APIs em formato de rascunho.   |
+| 13/11 (Marco 2)      | Guia completo e funcional de ponta a ponta, permitindo que um usuário externo consiga testar as integrações sozinho.    |
+| 27/11 (Marco 3)      | Produto final publicado com documentação (README) completa, diário de bordo consolidado e evidências de alcance salvas. |
+| 04/12 (Socialização) | Apresentação pública do projeto realizada e folha de presença do público impressa e entregue.                           |
 
 **Dependências externas.** Obtenção de chaves gratuitas de API (Pexels e Google Gemini). Pedidos e cadastros serão realizados nesta primeira semana de trabalho.
+
 ## Campo 7 — Indicadores
 
-| | Medida | Como será coletada | Valor que seria bom | 
-| ------ | ------ | ------ | ------ | 
-| Contagem | Acessos e visualizações únicas ao repositório público do tutorial. | Métricas do repositório no GitHub (Insights/Traffic) coletadas entre 02/10 e 27/11\. | Pelo menos 30 visualizações únicas no repositório. | 
+|             | Medida                                                                                | Como será coletada                                                                                                        | Valor que seria bom                                                                         |
+| ----------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Contagem    | Acessos e visualizações únicas ao repositório público do tutorial.                    | Métricas do repositório no GitHub (Insights/Traffic) coletadas entre 02/10 e 27/11\.                                      | Pelo menos 30 visualizações únicas no repositório.                                          |
 | Qualitativa | Avaliação escrita de criadores de conteúdo/editores externos sobre a clareza do guia. | Mensagens de retorno ou formulário curto aplicado aos criadores que testaram o tutorial, registrados em `evidencias.csv`. | Pelo menos 2 retornos escritos confirmando que conseguiram executar a integração sem ajuda. |
 
 ## Antes de entregar: a prova dos nove
@@ -83,4 +88,3 @@ Criadores de conteúdo independentes e editores iniciantes que desejam produzir 
 - [ ] Os indicadores podem ser coletados sem depender de terceiro.
 
 ---
-
