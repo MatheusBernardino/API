@@ -1,10 +1,12 @@
 ##### Semana de 18/09
+
 **Quem trabalhou e quanto:** Matheus — 4h; Joab — 4h
 
 **O que foi feito:**
-* Pesquisa introdutória de materiais/conceitos básicos e reunião da equipe para discussão e viabilidade do tema.
-* Definição da equipe e escolha formal da Trilha B (Comunicação) com foco em automação para Canais Dark.
-* Estruturação do repositório: Configuração da pasta de modelos no GitHub e preenchimento do rascunho inicial do `plano-de-acao.md` (problema, público, fontes de APIs e divisão de papéis).
+
+- Pesquisa introdutória de materiais/conceitos básicos e reunião da equipe para discussão e viabilidade do tema.
+- Definição da equipe e escolha formal da Trilha B (Comunicação) com foco em automação para Canais Dark.
+- Estruturação do repositório: Configuração da pasta de modelos no GitHub e preenchimento do rascunho inicial do `plano-de-acao.md` (problema, público, fontes de APIs e divisão de papéis).
 
 **Obstáculo:** Escolha entre os temas de VTubers e Canais Dark. Resolvido optando por Canais Dark devido à menor complexidade técnica de integração de APIs REST e maior facilidade de replicação pelo público.
 
@@ -14,14 +16,16 @@
 
 ---
 
-##### Semana de 25/09 
+##### Semana de 25/09
+
 **Quem trabalhou e quanto:** Matheus — 4h; Joab — 4h
 
-**O que foi feito:** 
-* Configuração da estrutura do repositório no editor de código, organizando as pastas `src/` e `evidencias/`.
-* Configuração dos arquivos de ambiente e dependências: `requirements.txt`, `.gitignore` e `.env.example`.
-* Elaboração do manual inicial no `README.md` cobrindo o uso e a execução dos scripts.
-* Implementação e testes executáveis das requisições para síntese de áudio (`src/teste_edge_tts.py`) e busca de mídias (`src/teste_pexels.py`).
+**O que foi feito:**
+
+- Configuração da estrutura do repositório no editor de código, organizando as pastas `src/` e `evidencias/`.
+- Configuração dos arquivos de ambiente e dependências: `requirements.txt`, `.gitignore` e `.env.example`.
+- Elaboração do manual inicial no `README.md` cobrindo o uso e a execução dos scripts.
+- Implementação e testes executáveis das requisições para síntese de áudio (`src/teste_edge_tts.py`) e busca de mídias (`src/teste_pexels.py`).
 
 **Obstáculo:** Entender a estrutura e o funcionamento das APIs que serão usadas na automação (Edge TTS, Pexels e Gemini).
 
@@ -30,5 +34,25 @@
 **Evidência coletada:** Print da execução do terminal e arquivos de teste salvos na pasta `evidencias/2026-09-25-teste-apis.png` , `evidencias/2026-09-25-teste-audio.mp3` , `2026-09-25-teste-pexels-imagem-id-4900859.png` , `2026-09-25-teste-pexels-imagem-id-9784238.jpeg` , `2026-09-25-teste-pexels-video.mp4`.
 
 **Próxima semana:** Integrar a geração de roteiros com a API do Gemini (`src/gerador_roteiro.py`), estruturar o fluxo principal no `src/main.py` e preparar a entrega do Marco 1 (02/10).
+
+---
+
+##### Semana de 02/10
+
+**Quem trabalhou e quanto:** Matheus — 5h; Joab — 5h
+
+**O que foi feito:**
+
+- Desenvolvimento do módulo de geração de roteiros estruturados em JSON via Gemini API (`src/gerador_roteiro.py`) e integração do pipeline completo no (`src/main.py`), com geração obrigatória de créditos de cada video do pexels.
+- Reorganização e detalhamento dos papéis da equipe no Campo 5 do (`plano-de-acao.md`).
+- Finalização da documentação do projeto, atualização do (`README.md`), redação da ficha de entrega do (`marco-1.md`) e mapeamento do público-alvo.
+
+**Obstáculos:** Garantir a formatação estrita do JSON retornado pela Gemini API para ser consumido sem erros pela renderização e lidar com sobrecargas temporárias da API gratuita (erro 503); ambos resolvidos refinando o _system prompt_ e implementando um loop de retentativas automáticas com tempo de espera progressivo (_exponential backoff_) bem como a escolha do modelo de IA.
+
+**Contato com o público:** Envio de e-mail e DMs de convite e teste aos criadores mapeados (@oLoboShortsBR, @seeanimais e @estranhascuriosidade).
+
+**Evidência coletada:** Captura do tráfego do GitHub em `evidencias/2026-10-02-acessos_github.png`, cópia da abordagem externa em `evidencias/2026-10-03-dms_criador.pdf` e atualização da planilha `evidencias.csv`.
+
+**Próxima semana:** Acompanhar o retorno e o feedback do público externo e iniciar os refinamentos de usabilidade e interface para o Marco 2.
 
 ---
