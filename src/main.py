@@ -17,6 +17,45 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_TEMP_DIR = os.path.join(ROOT_DIR, "temp_media")
 
 
+def salvar_creditos(creditos: list[dict], pasta_saida: str) -> str:
+  """Gera um arquivo creditos.txt na pasta da execução com a devida atribuição dos criadores."""
+  caminho_creditos = os.path.join(pasta_saida, "creditos.txt")
+  agora = datetime.now().strftime("%d/%m/%Y às %H:%M:%S")
+
+  linhas = [
+      "=" * 60,
+      "ATRIBUIÇÃO E CRÉDITOS DAS MÍDIAS (PEXELS)",
+      "=" * 60,
+      f"Data de geração: {agora}",
+      "Plataforma: Pexels (https://www.pexels.com)",
+      "Licença: Licença Pexels (Royalty-Free / Uso Gratuito)",
+      "Termos da Licença: https://www.pexels.com/license/",
+      "",
+      "Abaixo estão os créditos dos criadores dos vídeos utilizados:",
+      "-" * 60,
+  ]
+
+  for c in creditos:
+    linhas.append(f"[Cena {c['cena']}] Busca: \"{c['keyword']}\"")
+    linhas.append(f"  - Criador/Fotógrafo: {c['autor']}")
+    if c.get("perfil_autor"):
+      linhas.append(f"  - Perfil: {c['perfil_autor']}")
+    if c.get("url_video"):
+      linhas.append(f"  - Link do Vídeo: {c['url_video']}")
+    linhas.append("")
+
+  linhas.append("=" * 60)
+  linhas.append(
+      "Dica: Você pode copiar e colar estes créditos na descrição do seu vídeo no YouTube, TikTok ou Instagram."
+  )
+  linhas.append("=" * 60)
+
+  with open(caminho_creditos, "w", encoding="utf-8") as f:
+    f.write("\n".join(linhas) + "\n")
+
+  return caminho_creditos
+
+
 async def process_and_render_video(
     cenas_input: list[dict],
     pexels_api_key: str,
@@ -32,6 +71,7 @@ async def process_and_render_video(
 
   os.makedirs(pasta_execucao, exist_ok=True)
   arquivos_cenas = []
+  creditos = []
 
   for i, cena in enumerate(cenas_input):
     arquivo_audio = os.path.join(pasta_execucao, f"audio_{i}.mp3")
@@ -46,23 +86,37 @@ async def process_and_render_video(
         f"[Cena {i+1}/{len(cenas_input)}] Baixando mídia para a keyword:"
         f" '{cena['search_keyword']}'..."
     )
-    success = download_pexels_video(
+    info_midia = download_pexels_video(
         termos_busca=cena["search_keyword"],
         caminho_saida=arquivo_video,
         pexels_api_key=pexels_api_key,
     )
 
-    if not success:
+    if not info_midia:
       raise RuntimeError(
           f"Falha ao obter mídia para o termo '{cena['search_keyword']}'"
       )
 
+    autor = info_midia.get("autor", "Desconhecido")
+    print(f"      Criador no Pexels: {autor}")
+
     arquivos_cenas.append({"audio_path": arquivo_audio, "video_path": arquivo_video})
+    creditos.append({
+        "cena": i + 1,
+        "keyword": cena["search_keyword"],
+        "autor": autor,
+        "perfil_autor": info_midia.get("perfil_autor", ""),
+        "url_video": info_midia.get("url_video", ""),
+    })
 
   # 3. Interpola e renderiza o arquivo final
   print("\n[Render] Montando e interpolando arquivos via FFmpeg...")
   ajusta_video_e_audio(arquivos_cenas, caminho_saida)
   print(f"[Sucesso] Vídeo final gerado em: {caminho_saida}")
+
+  # 4. Salva arquivo com os créditos das mídias
+  caminho_creditos = salvar_creditos(creditos, pasta_execucao)
+  print(f"[Créditos] Arquivo de créditos gerado em: {caminho_creditos}")
 
 
 async def main():
