@@ -1,4 +1,4 @@
-# Guia de Automação para Canais Dark (Edge TTS + Pexels API + Gemini AI)
+ # Guia de Automação para Canais Dark (Edge TTS + Pexels API + Gemini AI)
 
 Um guia e conjunto de scripts em Python para automatizar a criação de conteúdo para canais dark, realizando síntese de voz gratuita e busca automatizada de mídias de fundo via API.
 
@@ -83,8 +83,8 @@ python src/teste_pipeline.py
 
 ## Licença
 
-- *Dados e Mídias:* Licença Pexels (Royalty-Free / Livre para uso pessoal e comercial).
-- *Código e material desta equipe:* Licença MIT (livre para reuso e modificação).
+- *Dados e Mídias:* Licença Pexels (Royalty-Free gratuita para uso pessoal e comercial via chave de API). Permite busca automatizada de fotos e vídeos em HD. Exige/recomenda a atribuição do criador (créditos ao fotógrafo e link de origem), os créditos sao gerados na produção do vídeo no main.py e salvo no arquivo créditos.txt em temp_media.
+- *Código e material desta equipe:* A biblioteca Python possui licença MIT (código aberto). O serviço subjacente consome a API do Microsoft Edge gratuitamente (sem necessidade de chave). Como o serviço em si não possui termos comerciais 100% explícitos da Microsoft, o uso é recomendado para fins educacionais, pessoais e de prototipagem.
 
 ## O que este produto não faz
 
