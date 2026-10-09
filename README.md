@@ -108,7 +108,15 @@ python -m pytest
 ## Licença
 
 - *Dados e Mídias:* Licença Pexels (Royalty-Free gratuita para uso pessoal e comercial via chave de API). Permite busca automatizada de fotos e vídeos em HD. Exige/recomenda a atribuição do criador (créditos ao fotógrafo e link de origem), os créditos sao gerados na produção do vídeo no main.py e salvo no arquivo créditos.txt em temp_media.
-- *Código e material desta equipe:* A biblioteca Python possui licença MIT (código aberto). O serviço subjacente consome a API do Microsoft Edge gratuitamente (sem necessidade de chave). Como o serviço em si não possui termos comerciais 100% explícitos da Microsoft, o uso é recomendado para fins educacionais, pessoais e de prototipagem.
+- *Código e material desta equipe:* licença **MIT** (arquivo [`LICENSE`](LICENSE)): uso livre, desde que se mantenha a nota de copyright e os créditos às fontes de terceiros listados no próprio `LICENSE`.
+- *Síntese de voz:* a biblioteca `edge-tts` é distribuída sob **LGPL-3.0** e acessa o serviço de voz do Microsoft Edge sem chave. Como o serviço não possui termos comerciais explícitos, o uso é recomendado para fins educacionais, pessoais e de prototipagem.
+- *Roteiros:* gerados pela API do Google Gemini, sujeitos aos [termos da API](https://ai.google.dev/gemini-api/terms); o texto é produzido por IA e deve ser revisado antes de publicar.
+
+### Créditos às fontes
+Ao publicar um vídeo gerado por este projeto, mantenha os créditos:
+- **Pexels:** use o `creditos.txt` gerado na pasta da execução (criador e link de cada vídeo).
+- **Gemini e Edge TTS:** cite o uso de IA generativa (roteiro) e de voz sintética.
+- **Bibliotecas** (Apache-2.0, BSD, MIT, LGPL): lista completa com links e licenças no final do arquivo [`LICENSE`](LICENSE).
 
 ## O que este produto não faz
 
