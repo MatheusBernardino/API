@@ -1,14 +1,15 @@
 import asyncio
 import os
 import re
+import sys
 from datetime import datetime
 import logging
 
 from dotenv import load_dotenv
-from material import download_pexels_video
+from material import PexelsError, download_pexels_video
 from video import ajusta_video_e_audio
 from fala import tts
-from gerador_roteiro import generate_script
+from gerador_roteiro import ChaveInvalidaError, generate_script
 
 logging.getLogger("google_genai").setLevel(logging.ERROR)
 
@@ -124,15 +125,22 @@ async def main():
     pexels_key = os.getenv("PEXELS_API_KEY")
     if not pexels_key:
         print("[Erro] PEXELS_API_KEY não encontrada no arquivo .env.")
-        return
+        sys.exit(1)
+    if not os.getenv("GEMINI_API_KEY"):
+        print("[Erro] GEMINI_API_KEY não encontrada no arquivo .env.")
+        sys.exit(1)
     tema = input("Digite o tema do vídeo (ou deixe em branco para o padrão): ").strip()
     if not tema:
         tema = "Curiosidades sobre o Universo"
     print(f"\n[1/3] Gerando roteiro com Gemini para: '{tema}'...")
-    cenas = generate_script(video_subject=tema, paragraph_number=8)
+    try:
+        cenas = generate_script(video_subject=tema, paragraph_number=8)
+    except ChaveInvalidaError as e:
+        print(f"[Erro] {e}")
+        sys.exit(1)
     if not cenas:
         print("[Erro] Não foi possível gerar o roteiro. Operação cancelada.")
-        return
+        sys.exit(1)
     print(f"[Roteiro] {len(cenas)} cenas geradas com sucesso!")
 
     # Cria subpasta única para esta execução dentro de temp_media
@@ -144,12 +152,16 @@ async def main():
     caminho_saida = os.path.join(pasta_execucao, "video_final.mp4")
 
     print(f"\n[2/3] Iniciando produção do vídeo (temporários em: temp_media/{nome_pasta})...")
-    await process_and_render_video(
-        cenas_input=cenas,
-        pexels_api_key=pexels_key,
-        caminho_saida=caminho_saida,
-        pasta_execucao=pasta_execucao,
-    )
+    try:
+        await process_and_render_video(
+            cenas_input=cenas,
+            pexels_api_key=pexels_key,
+            caminho_saida=caminho_saida,
+            pasta_execucao=pasta_execucao,
+        )
+    except (PexelsError, RuntimeError) as e:
+        print(f"[Erro] {e}")
+        sys.exit(1)
     print(f"\n[3/3] Pipeline concluído! Abra o arquivo '{caminho_saida}' para assistir.")
 
 

@@ -5,6 +5,10 @@ Um guia e conjunto de scripts em Python para automatizar a criação de conteúd
 ## Para quem é
 Criadores de conteúdo, estudantes de Ciência de Dados e entusiastas que desejam aprender a consumir APIs web para produção automatizada de vídeos e mídias curtas.
 
+## Requisitos
+- **Python 3.10 ou superior** (desenvolvido e testado na 3.12).
+- Chaves gratuitas das APIs do Pexels e do Google Gemini (veja o passo 4).
+
 ## Como usar
 Passo a passo para clonar e executar os testes na sua máquina:
 
@@ -72,6 +76,26 @@ python src/gerador_roteiro.py
 python src/teste_pipeline.py
 ```
 
+
+## Se algo der errado
+O programa para na primeira falha e encerra com código de saída 1, com uma mensagem objetiva:
+
+| Situação | O que acontece |
+| :-- | :-- |
+| `PEXELS_API_KEY` ou `GEMINI_API_KEY` ausente no `.env` | Avisa e encerra antes de qualquer chamada. |
+| Chave do Gemini inválida | Encerra na 1ª tentativa, sem repetir. Falhas temporárias (ex.: erro 503) são repetidas até 5 vezes. |
+| Chave do Pexels inválida (401/403) | Mensagem clara e encerramento. |
+| Limite do Pexels atingido (429) | Mensagem pedindo para aguardar. |
+| Sem resposta do Pexels | Timeout (5s para conectar; 15s na busca e 60s no download). |
+
+## Limite de requisições do Pexels
+O plano gratuito da API do Pexels permite, por padrão, **200 requisições por hora e 20.000 por mês** (conferir em https://www.pexels.com/api/documentation/). Cada cena do roteiro faz 2 requisições (busca + download), então um vídeo de 8 cenas consome cerca de 16.
+
+## Testes automatizados
+Os testes de falhas (chave inválida, limite, timeout e código de saída) usam respostas simuladas, então não precisam de internet nem de chaves:
+```bash
+python -m pytest
+```
 
 ## De onde vêm os dados
 
