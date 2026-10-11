@@ -5,6 +5,10 @@ Um guia e conjunto de scripts em Python para automatizar a criação de conteúd
 ## Para quem é
 Criadores de conteúdo, estudantes de Ciência de Dados e entusiastas que desejam aprender a consumir APIs web para produção automatizada de vídeos e mídias curtas.
 
+## Requisitos
+- **Python 3.10 ou superior** (desenvolvido e testado na 3.12).
+- Chaves gratuitas das APIs do Pexels e do Google Gemini (veja o passo 4).
+
 ## Como usar
 Passo a passo para clonar e executar os testes na sua máquina:
 
@@ -73,6 +77,26 @@ python src/teste_pipeline.py
 ```
 
 
+## Se algo der errado
+O programa para na primeira falha e encerra com código de saída 1, com uma mensagem objetiva:
+
+| Situação | O que acontece |
+| :-- | :-- |
+| `PEXELS_API_KEY` ou `GEMINI_API_KEY` ausente no `.env` | Avisa e encerra antes de qualquer chamada. |
+| Chave do Gemini inválida | Encerra na 1ª tentativa, sem repetir. Falhas temporárias (ex.: erro 503) são repetidas até 5 vezes. |
+| Chave do Pexels inválida (401/403) | Mensagem clara e encerramento. |
+| Limite do Pexels atingido (429) | Mensagem pedindo para aguardar. |
+| Sem resposta do Pexels | Timeout (5s para conectar; 15s na busca e 60s no download). |
+
+## Limite de requisições do Pexels
+O plano gratuito da API do Pexels permite, por padrão, **200 requisições por hora e 20.000 por mês** (conferir em https://www.pexels.com/api/documentation/). Cada cena do roteiro faz 2 requisições (busca + download), então um vídeo de 8 cenas consome cerca de 16.
+
+## Testes automatizados
+Os testes de falhas (chave inválida, limite, timeout e código de saída) usam respostas simuladas, então não precisam de internet nem de chaves:
+```bash
+python -m pytest
+```
+
 ## De onde vêm os dados
 
 | Fonte | Órgão | Endereço | Data do dado |
@@ -84,7 +108,15 @@ python src/teste_pipeline.py
 ## Licença
 
 - *Dados e Mídias:* Licença Pexels (Royalty-Free gratuita para uso pessoal e comercial via chave de API). Permite busca automatizada de fotos e vídeos em HD. Exige/recomenda a atribuição do criador (créditos ao fotógrafo e link de origem), os créditos sao gerados na produção do vídeo no main.py e salvo no arquivo créditos.txt em temp_media.
-- *Código e material desta equipe:* A biblioteca Python possui licença MIT (código aberto). O serviço subjacente consome a API do Microsoft Edge gratuitamente (sem necessidade de chave). Como o serviço em si não possui termos comerciais 100% explícitos da Microsoft, o uso é recomendado para fins educacionais, pessoais e de prototipagem.
+- *Código e material desta equipe:* licença **MIT** (arquivo [`LICENSE`](LICENSE)): uso livre, desde que se mantenha a nota de copyright e os créditos às fontes de terceiros listados no próprio `LICENSE`.
+- *Síntese de voz:* a biblioteca `edge-tts` é distribuída sob **LGPL-3.0** e acessa o serviço de voz do Microsoft Edge sem chave. Como o serviço não possui termos comerciais explícitos, o uso é recomendado para fins educacionais, pessoais e de prototipagem.
+- *Roteiros:* gerados pela API do Google Gemini, sujeitos aos [termos da API](https://ai.google.dev/gemini-api/terms); o texto é produzido por IA e deve ser revisado antes de publicar.
+
+### Créditos às fontes
+Ao publicar um vídeo gerado por este projeto, mantenha os créditos:
+- **Pexels:** use o `creditos.txt` gerado na pasta da execução (criador e link de cada vídeo).
+- **Gemini e Edge TTS:** cite o uso de IA generativa (roteiro) e de voz sintética.
+- **Bibliotecas** (Apache-2.0, BSD, MIT, LGPL): lista completa com links e licenças no final do arquivo [`LICENSE`](LICENSE).
 
 ## O que este produto não faz
 

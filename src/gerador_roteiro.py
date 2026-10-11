@@ -95,6 +95,15 @@ def build_script_prompt(
 # ==============================================================================
 # 4. COMUNICAÇÃO COM O GEMINI SDK
 # ==============================================================================
+class ChaveInvalidaError(Exception):
+    """Chave do Gemini ausente, inválida ou sem permissão. Repetir não adianta."""
+
+
+def _eh_erro_de_chave(erro: Exception) -> bool:
+    codigo = getattr(erro, "code", None)
+    return codigo in (401, 403) or (codigo == 400 and "api key" in str(erro).lower())
+
+
 def _normalize_text_response(content, llm_provider: str = "gemini") -> str:
     if content is None:
         raise ValueError(f"[{llm_provider}] returned empty text content")
@@ -104,11 +113,11 @@ def _normalize_text_response(content, llm_provider: str = "gemini") -> str:
 
 def _call_gemini_api(prompt: str, api_key: str = "", model_name: str = DEFAULT_MODEL_NAME, base_url: str = "") -> str:
     from google import genai
-    from google.genai import types
+    from google.genai import errors, types
 
     resolved_key = api_key or os.getenv("GEMINI_API_KEY", "")
     if not resolved_key:
-        raise ValueError("Chave GEMINI_API_KEY não encontrada nas variáveis de ambiente.")
+        raise ChaveInvalidaError("GEMINI_API_KEY não encontrada. Confira o arquivo .env.")
 
     http_options = types.HttpOptions(base_url=base_url) if base_url else None
     
@@ -120,13 +129,20 @@ def _call_gemini_api(prompt: str, api_key: str = "", model_name: str = DEFAULT_M
         response_mime_type="application/json",
     )
 
-    with genai.Client(api_key=resolved_key, http_options=http_options) as client:
-        response = client.models.generate_content(
-            model=model_name,
-            contents=prompt,
-            config=generation_config,
-        )
-        return _normalize_text_response(response.text, "gemini")
+    try:
+        with genai.Client(api_key=resolved_key, http_options=http_options) as client:
+            response = client.models.generate_content(
+                model=model_name,
+                contents=prompt,
+                config=generation_config,
+            )
+            return _normalize_text_response(response.text, "gemini")
+    except errors.ClientError as e:
+        if _eh_erro_de_chave(e):
+            raise ChaveInvalidaError(
+                "GEMINI_API_KEY inválida ou sem permissão. Confira o arquivo .env."
+            ) from e
+        raise
 
 # ==============================================================================
 # 5. SANITIZAÇÃO DE SAÍDA & ORQUESTRADOR
@@ -179,6 +195,9 @@ def generate_script(
                     cena["script"] = _clean_text_for_tts(cena.get("script", ""))
                     final_scenes.append(cena)
                 break
+        except ChaveInvalidaError:
+            # Erro permanente: não adianta tentar de novo.
+            raise
         except Exception as e:
             print(f"[Aviso] Tentativa {attempt + 1}/{MAX_RETRIES} falhou: {e}")
             if attempt < MAX_RETRIES - 1:

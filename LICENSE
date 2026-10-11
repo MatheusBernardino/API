@@ -1,0 +1,54 @@
+MIT License
+
+Copyright (c) 2026 Matheus Bernardino de Sousa e Joab da Silva Rocha
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--------------------------------------------------------------------------------
+CRÉDITOS E FONTES DE TERCEIROS
+--------------------------------------------------------------------------------
+
+Este projeto é livre: o código desta equipe pode ser usado, copiado, modificado
+e distribuído (inclusive para fins comerciais), desde que mantida a nota de
+copyright acima e os créditos às fontes abaixo. Os itens abaixo NÃO são cobertos
+pela licença MIT desta equipe; cada um segue os seus próprios termos.
+
+Serviços e dados usados pelo projeto
+  - Pexels (https://www.pexels.com) - vídeos de fundo, via API.
+    Licença Pexels: https://www.pexels.com/license/
+    Os créditos de cada criador e o link do vídeo são gerados automaticamente
+    no arquivo creditos.txt de cada execução e devem ser mantidos na
+    publicação do vídeo.
+  - Google Gemini API (https://ai.google.dev) - geração dos roteiros.
+    Termos: https://ai.google.dev/gemini-api/terms
+    O texto gerado é produzido por IA; quem publica é responsável por revisá-lo.
+  - Microsoft Edge TTS (serviço de síntese de voz acessado pela biblioteca
+    edge-tts). Sem termos comerciais explícitos: uso recomendado para fins
+    educacionais, pessoais e de prototipagem.
+
+Bibliotecas de terceiros (instaladas via requirements.txt)
+  - edge-tts       - LGPL-3.0        - https://github.com/rany2/edge-tts
+  - google-genai   - Apache-2.0      - https://github.com/googleapis/python-genai
+  - requests       - Apache-2.0      - https://github.com/psf/requests
+  - httpx          - BSD-3-Clause    - https://github.com/encode/httpx
+  - python-dotenv  - BSD-3-Clause    - https://github.com/theskumar/python-dotenv
+  - moviepy        - MIT             - https://github.com/Zulko/moviepy
+  - pillow         - MIT-CMU (HPND)  - https://github.com/python-pillow/Pillow
+  - pytest         - MIT             - https://github.com/pytest-dev/pytest
+  - FFmpeg (usado pelo moviepy, instalado à parte) - LGPL/GPL - https://ffmpeg.org
