@@ -17,6 +17,8 @@ env/
 # Pasta de Arquivos Gerados 
 temp_media/
 
-# Arquivos do Sistema Operacional 
+# Arquivos do Sistema Operacional e Editores
 .DS_Store 
 Thumbs.db 
+.pytest_cache/
+.offline-markdown-preview/

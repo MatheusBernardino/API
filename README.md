@@ -9,6 +9,11 @@ Criadores de conteúdo, estudantes de Ciência de Dados e entusiastas que deseja
 - **Python 3.10 ou superior** (desenvolvido e testado na 3.12).
 - Chaves gratuitas das APIs do Pexels e do Google Gemini (veja o passo 4).
 
+## Executar no Google Colab
+Dispensa configuração de ambiente local. Clique abaixo para testar diretamente no Google Colab:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/14Ck-v9NyS3qpsbuRZjD2pew3ZHHVVgbE?usp=sharing)
+
 ## Como usar
 Passo a passo para clonar e executar os testes na sua máquina:
 
