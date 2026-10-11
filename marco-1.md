@@ -28,7 +28,7 @@ n.a.
 
 | Indicador                                                   | Planejado                | Obtido até hoje                                                                                                                                    | Onde está a evidência                                                  |
 | ----------------------------------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Total de visualizações acumuladas do repositório (Contagem) | 30 visualizações         | 191 visualizações acumuladas nos últimos 14 dias registradas no GitHub Insights Traffic                                                           | `evidencias/2026-10-02-acessos_github.png` e linha no `evidencias.csv` |
+| Total de visualizações acumuladas do repositório (Contagem) | 30 visualizações         | 191 visualizações acumuladas nos últimos 14 dias registradas no GitHub Insights Traffic                                                            | `evidencias/2026-10-02-acessos_github.png` e linha no `evidencias.csv` |
 | Abordagem e feedback do público externo (Qualitativa)       | 3 contatos com criadores | E-mails e DMs de convite de teste e feedback enviados para os criadores de conteúdo mapeados (@oLoboShortsBR, @seeanimais e @estranhascuriosidade) | `evidencias/2026-10-03-dms_criador.pdf` e linha no `evidencias.csv`    |
 
 **O que o público externo disse:** Mensagens de abordagem enviadas via e-mail e DM para os criadores de conteúdo mapeados no Marco 1; aguardando o retorno e o feedback escrito sobre o uso do gerador para consolidação no Marco 2.
@@ -45,17 +45,17 @@ n.a.
 
 #### Campo 5 — Autopontuação
 
-| Dimensão                            | n.a.? | Pts (0–2) | Por quê, em uma linha                                                                                     |
-| ----------------------------------- | ----- | --------- | --------------------------------------------------------------------------------------------------------- |
-| D1 Qualidade técnica                |       | 2.0       | Pipeline modular funcional de ponta a ponta (`gerador_roteiro`, `fala`, `material`, `video` e `main.py`). |
-| D2 Alcance e adequação ao público   | Sim   | -         | Em andamento (abordagem inicial enviada ao público e registro de tráfego do repositório coletado).        |
-| D3 Documentação e reprodutibilidade |       | 2.0       | README.md completo com guia passo a passo, `.env.example`, licença e limitações declaradas.               |
-| D4 Registro do processo             |       | 2.0       | Diário de bordo atualizado semanalmente, papéis bem definidos no Campo 5 e `evidencias.csv` preenchido.   |
-| D5 Autoavaliação e reflexão         | Sim   | -         | Aplicável apenas ao Marco 3 e à Socialização.                                                             |
+| Dimensão                            | n.a.? | Pts (0–2) | Por quê, em uma linha                                                                                    |
+| ----------------------------------- | ----- | --------- | -------------------------------------------------------------------------------------------------------- |
+| D1 Qualidade técnica                |       | 1.6       | Pipeline modular de ponta a ponta com fail-fast, timeouts explícitos e 13 testes unitários com pytest.   |
+| D2 Alcance e adequação ao público   | Sim   | -         | Em andamento (abordagem inicial enviada ao público e registro de tráfego do repositório coletado).       |
+| D3 Documentação e reprodutibilidade |       | 1.6       | README com guia passo a passo, notebook no Google Colab, licença MIT, limites de API e `.env.example`.   |
+| D4 Registro do processo             |       | 1.6       | Diário de bordo nominal com horas distintas por membro, papéis no plano e `evidencias.csv` sincronizado. |
+| D5 Autoavaliação e reflexão         | Sim   | -         | Aplicável apenas ao Marco 3 e à Socialização.                                                            |
 
-- **Pontos obtidos:** 6.0
+- **Pontos obtidos:** 4.8
 - **Pontos aplicáveis:** 6.0 (D1 + D3 + D4)
-- **Nota calculada (10 × obtidos / aplicáveis):** **10.0**
+- **Nota calculada (10 × obtidos / aplicáveis):** **8.0**
 
 ---
 
