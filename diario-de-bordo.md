@@ -21,7 +21,7 @@
   - Redação do tutorial técnico inicial no `README.md` com pré-requisitos, instruções de instalação do ambiente, obtenção de chaves de API e roteiro de execução dos testes de síntese de voz e busca de mídia (Joab).
 - **Obstáculo:** Entender a estrutura e o funcionamento das APIs que serão usadas na automação (Edge TTS, Pexels e Gemini); custou ~2h de leitura e testes de rotas. Resolvido com scripts de teste dedicados.
 - **Contato com o público:** Nenhum contato nesta semana.
-- **Evidência coletada:** Print da execução do terminal e arquivos de teste salvos em `evidencias/2026-09-25-teste-apis.png`, `evidencias/2026-09-25-teste-audio.mp3` e mídias do Pexels, catalogadas no `evidencias.csv`.
+- **Evidência coletada:** Print da execução do terminal e arquivos de teste salvos em `evidencias/2026-09-25-execucao-terminal.png`, `evidencias/2026-09-25-teste-audio-edgetts.mp3` e mídias do Pexels(`2026-09-25-teste-pexels-video.mp4`,`2026-09-25-teste-pexels-imagem-id-9784238.jpeg`,`2026-09-25-teste-pexels-imagem-id-4900859.png`  ), catalogadas no `evidencias.csv`.
 - **Próxima semana:** Integrar a geração de roteiros com a API do Gemini (`src/gerador_roteiro.py`), estruturar o fluxo principal no `src/main.py` e preparar a entrega do Marco 1 (02/10).
 
 ---
@@ -30,7 +30,7 @@
 
 - **Quem trabalhou e quanto:** Matheus — 6h; Joab — 5h
 - **O que foi feito:**
-  - Modularização do pipeline de áudio (`src/audio.py`), download e corte de mídias (`src/material.py`), montagem e renderização com MoviePy (`src/video.py`), orquestrador completo (`src/main.py`), rotina de extração e salvamento de créditos dos criadores do Pexels (`creditos.txt`), redação da ficha `marco-1.md` e consolidação final das evidências (Matheus).
+  - Modularização do pipeline de áudio (`src/fala.py`), download e corte de mídias (`src/material.py`), montagem e renderização com MoviePy (`src/video.py`), orquestrador completo (`src/main.py`), rotina de extração e salvamento de créditos dos criadores do Pexels (`creditos.txt`), redação da ficha `marco-1.md` e consolidação final das evidências (Matheus).
   - Implementação do gerador de roteiros com a Gemini API (`src/gerador_roteiro.py`) com schema estruturado em JSON para 8 cenas, engenharia de prompt para gerar termos de busca compatíveis com o Pexels, tratamento de instabilidade/erro 503 com retentativas automáticas e atualização do `README.md` com o guia de execução da pipeline completa (Joab).
 - **Obstáculo:** Garantir a formatação estrita do JSON retornado pelo Gemini e contornar erros temporários de sobrecarga 503 da API; custou ~3h. Resolvido refinando o system prompt e adicionando exponential backoff.
 - **Contato com o público:** Mapeamento dos criadores de conteúdo e canais dark (@oLoboShortsBR, @seeanimais e @estranhascuriosidade) e envio de mensagens e e-mails de abordagem e convite de teste após termos a pipeline funcional do Marco 1; sem resposta ainda (aguardando feedback para o Marco 2).
@@ -44,7 +44,7 @@
 - **Quem trabalhou e quanto:** Matheus — 4h; Joab — 6h
 - **O que foi feito:**
   - Higienização de dados pessoais em evidências e expurgo definitivo do histórico Git via rebase interativo; padronização métrica de tráfego do repositório (191 visualizações acumuladas) e definição formal de rotina de coleta quinzenal no `marco-1.md` e `plano-de-acao.md`; preparação de ambiente na nuvem via Google Colab com link de execução direta e badge no `README.md`; registro da nova evidência de testes unitários no `evidencias.csv` (Matheus).
-  - Criação do arquivo formal de licença de código aberto `LICENSE` (MIT) e sua documentação no `README.md`; refatoração de resiliência e tratamento de falhas em `src/main.py` e `src/material.py` (fail-fast com exceções customizadas `ChaveInvalidaError`/`PexelsError` e adição de timeout explícito de 30s nas requisições HTTP); implementação da suíte de 13 testes unitários automatizados com `pytest` em `tests/test_falhas.py` (Joab).
+  - Criação do arquivo formal de licença de código aberto `LICENSE` (MIT) e sua documentação no `README.md`; refatoração de resiliência e tratamento de falhas em `src/main.py` e `src/material.py` (fail-fast com exceções customizadas `ChaveInvalidaError`/`PexelsError` e adição de timeouts explícitos nas requisições do Pexels: 5s conexão, 15s busca e 60s download); implementação da suíte de 13 testes unitários automatizados com `pytest` em `tests/test_falhas.py` (Joab).
 - **Obstáculo:** Garantir testes reproduzíveis sem consumir cotas reais das APIs ou expor credenciais em testes automatizados; custou ~2h. Resolvido utilizando `unittest.mock` para simular cenários de chaves ausentes, respostas 401 de autenticação e timeouts de rede de forma totalmente determinística.
 - **Contato com o público:** Disponibilização de acesso sem necessidade de setup local através do Google Colab para facilitar testes por criadores sem familiaridade com terminal e Python.
 - **Evidência coletada:** Registro e captura da execução integral da suíte de 13 testes unitários com pytest em `evidencias/2026-10-11-execucao_pytest.png` e atualização do repositório e planilha `evidencias.csv`.
