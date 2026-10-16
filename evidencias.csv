@@ -11,3 +11,4 @@ data,tipo,indicador,canal,quem_de_fora,valor,descricao,arquivo
 2026-10-02,contagem,total de visualizacoes no repositorio,github,,191,Total de visualizacoes acumuladas no periodo de 14 dias registradas no GitHub Insights Traffic,evidencias/2026-10-02-acessos_github.png
 2026-10-03,qualitativa,abordagem ao publico externo,email_e_dm,"@oLoboShortsBR, @seeanimais, @estranhascuriosidade",3,Envio de mensagens de abordagem e convite de teste aos criadores mapeados,evidencias/2026-10-03-dms_criador.pdf
 2026-10-11,contagem,execucao de testes,terminal,,13,Execucao de 13 testes automatizados de falhas e timeouts via pytest com 100% de sucesso,evidencias/2026-10-11-execucao_pytest.png
+2026-10-16,contagem,total de visitantes unicos no repositorio,github,,3,Total de visitantes unicos acumuladas dos ultimos 14 dias no GitHub Insights Traffic,evidencias/2026-10-16-visitantes_github.png
