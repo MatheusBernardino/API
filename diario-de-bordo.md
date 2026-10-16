@@ -21,7 +21,7 @@
   - Redação do tutorial técnico inicial no `README.md` com pré-requisitos, instruções de instalação do ambiente, obtenção de chaves de API e roteiro de execução dos testes de síntese de voz e busca de mídia (Joab).
 - **Obstáculo:** Entender a estrutura e o funcionamento das APIs que serão usadas na automação (Edge TTS, Pexels e Gemini); custou ~2h de leitura e testes de rotas. Resolvido com scripts de teste dedicados.
 - **Contato com o público:** Nenhum contato nesta semana.
-- **Evidência coletada:** Print da execução do terminal e arquivos de teste salvos em `evidencias/2026-09-25-execucao-terminal.png`, `evidencias/2026-09-25-teste-audio-edgetts.mp3` e mídias do Pexels(`2026-09-25-teste-pexels-video.mp4`,`2026-09-25-teste-pexels-imagem-id-9784238.jpeg`,`2026-09-25-teste-pexels-imagem-id-4900859.png`  ), catalogadas no `evidencias.csv`.
+- **Evidência coletada:** Print da execução do terminal e arquivos de teste salvos em `evidencias/2026-09-25-execucao-terminal.png`, `evidencias/2026-09-25-teste-audio-edgetts.mp3` e mídias do Pexels(`2026-09-25-teste-pexels-video.mp4`,`2026-09-25-teste-pexels-imagem-id-9784238.jpeg`,`2026-09-25-teste-pexels-imagem-id-4900859.png` ), catalogadas no `evidencias.csv`.
 - **Próxima semana:** Integrar a geração de roteiros com a API do Gemini (`src/gerador_roteiro.py`), estruturar o fluxo principal no `src/main.py` e preparar a entrega do Marco 1 (02/10).
 
 ---
@@ -49,3 +49,17 @@
 - **Contato com o público:** Disponibilização de acesso sem necessidade de setup local através do Google Colab para facilitar testes por criadores sem familiaridade com terminal e Python.
 - **Evidência coletada:** Registro e captura da execução integral da suíte de 13 testes unitários com pytest em `evidencias/2026-10-11-execucao_pytest.png` e atualização do repositório e planilha `evidencias.csv`.
 - **Próxima semana:** Acompanhar feedback dos criadores contatados, analisar sugestões de novos formatos de vídeo e aprimoramentos no modelo já criado para o Marco 2.
+
+---
+
+#### Semana de 16/10
+
+- **Quem trabalhou e quanto:** Matheus — 3h; Joab — 0h
+- **O que foi feito:**
+  - Correção das inconsistências apontadas no diário de bordo: ajuste da referência para `src/fala.py`, especificação dos timeouts reais do Pexels e atualização dos nomes exatos das evidências de 25/09 (Matheus).
+  - Abertura de chamado junto ao suporte do GitHub para solicitação de _garbage collection_ e limpeza de cache de commits órfãos, já atendido e concluído pela plataforma (Matheus).
+  - Coleta do print de tráfego na data fixa de 16/10 (`evidencias/2026-10-16-visitantes_github.png`), registro no `evidencias.csv` e alinhamento do Campo 7 no `plano-de-acao.md` para visitantes únicos (Matheus).
+- **Obstáculo:** Nenhum obstáculo técnico enfrentado nesta semana.
+- **Contato com o público:** Nenhum contato nesta semana.
+- **Evidência coletada:** Captura da tela de tráfego quinzenal em `evidencias/2026-10-16-visitantes_github.png`, registrada no `evidencias.csv`.
+- **Próxima semana:** Iniciar a resolução das pendências do Marco 2 (tratamento de erro 403 do Edge TTS no `src/fala.py` para não gerar áudio vazio e anexar a evidência do 3º criador).
