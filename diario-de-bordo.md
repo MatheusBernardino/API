@@ -63,3 +63,15 @@
 - **Contato com o público:** Nenhum contato nesta semana.
 - **Evidência coletada:** Captura da tela de tráfego quinzenal em `evidencias/2026-10-16-visitantes_github.png`, registrada no `evidencias.csv`.
 - **Próxima semana:** Iniciar a resolução das pendências do Marco 2 (tratamento de erro 403 do Edge TTS no `src/fala.py` para não gerar áudio vazio e anexar a evidência do 3º criador).
+
+---
+
+#### Semana de 23/10
+
+- **Quem trabalhou e quanto:** Matheus — 1h; Joab — 0h
+- **O que foi feito:**
+  - Atualização do documento `evidencias/2026-10-03-dms_criador.pdf` com a inclusão da evidência visual de abordagem ao canal @oLoboShortsBR (página 3), sanando a comprovação dos 3 contatos externos solicitados pelo professor para o Marco 2 (Matheus).
+- **Obstáculo:** Nenhum obstáculo técnico enfrentado nesta semana.
+- **Contato com o público:** Registro formalizado da abordagem ao canal @oLoboShortsBR via YouTube Shorts anexado às evidências.
+- **Evidência coletada:** Inclusão da captura de tela do comentário ao criador @oLoboShortsBR no PDF `evidencias/2026-10-03-dms_criador.pdf`.
+- **Próxima semana:** Próxima coleta quinzenal fixa de tráfego do GitHub em 30/10 e implementação do tratamento de erro 403 do Edge TTS no `src/fala.py`.
