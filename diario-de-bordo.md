@@ -75,3 +75,15 @@
 - **Contato com o público:** Registro formalizado da abordagem ao canal @oLoboShortsBR via YouTube Shorts anexado às evidências.
 - **Evidência coletada:** Inclusão da captura de tela do comentário ao criador @oLoboShortsBR no PDF `evidencias/2026-10-03-dms_criador.pdf`.
 - **Próxima semana:** Próxima coleta quinzenal fixa de tráfego do GitHub em 30/10 e implementação do tratamento de erro 403 do Edge TTS no `src/fala.py`.
+
+---
+
+#### Semana de 30/10
+
+- **Quem trabalhou e quanto:** Matheus — 10min; Joab — 0h
+- **O que foi feito:**
+  - Coleta do print quinzenal de tráfego do repositório na segunda data fixa estipulada (`evidencias/2026-10-30-visitantes_github.png`) e registro da medição no `evidencias.csv` (Matheus).
+- **Obstáculo:** Nenhum obstáculo técnico enfrentado nesta semana.
+- **Contato com o público:** Nenhum contato nesta semana.
+- **Evidência coletada:** Captura da tela de tráfego quinzenal em `evidencias/2026-10-30-visitantes_github.png` (1 visitante único nos últimos 14 dias), registrada no `evidencias.csv`.
+- **Próxima semana:** Implementar o tratamento de falha 403 do Edge TTS em `src/fala.py` (evitando arquivo `.mp3` vazio), limpar linhas de execução de teste do `evidencias.csv` (mantendo apenas indicadores do Campo 7) e preparar a entrega do Marco 2.
