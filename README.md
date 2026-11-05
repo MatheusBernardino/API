@@ -92,6 +92,7 @@ O programa para na primeira falha e encerra com código de saída 1, com uma men
 | Chave do Pexels inválida (401/403) | Mensagem clara e encerramento. |
 | Limite do Pexels atingido (429) | Mensagem pedindo para aguardar. |
 | Sem resposta do Pexels | Timeout (5s para conectar; 15s na busca e 60s no download). |
+| Edge TTS recusa a requisição (ex.: 403) ou não devolve áudio | Mensagem clara, encerramento com erro e nenhum `.mp3` vazio fica na pasta. Se persistir, atualize a biblioteca: `pip install -U edge-tts`. |
 
 ## Limite de requisições do Pexels
 O plano gratuito da API do Pexels permite, por padrão, **200 requisições por hora e 20.000 por mês** (conferir em https://www.pexels.com/api/documentation/). Cada cena do roteiro faz 2 requisições (busca + download), então um vídeo de 8 cenas consome cerca de 16.
@@ -145,7 +146,8 @@ Equipe do Projeto (UFC - CC0464):
 | Número que aparece no material | Fonte | Como foi calculado |
 | :-- | :-- | :-- |
 | per_page: 2 (vídeos) / 4 (fotos) | API do Pexels | Parâmetro de requisição HTTP configurado nos scripts de teste |
-| Tempo limite (timeout de 10s) | httpx | Parâmetro de tolerância máxima definido nas chamadas de rede |
+| Tempo limite de 10s | httpx | Parâmetro `timeout=10.0` dos scripts de teste (`src/teste_pexels.py`) |
+| Tempos limite de 5s, 15s e 60s | requests | Conexão, busca e download do Pexels no pipeline (`src/material.py`) |
 
 ## Como adaptar para outro contexto
 Para adaptar o projeto para outro nicho de conteúdo ou canal:

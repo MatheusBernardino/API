@@ -8,7 +8,7 @@ import logging
 from dotenv import load_dotenv
 from material import PexelsError, download_pexels_video
 from video import ajusta_video_e_audio
-from fala import tts
+from fala import TTSError, tts
 from gerador_roteiro import ChaveInvalidaError, generate_script
 
 logging.getLogger("google_genai").setLevel(logging.ERROR)
@@ -159,7 +159,7 @@ async def main():
             caminho_saida=caminho_saida,
             pasta_execucao=pasta_execucao,
         )
-    except (PexelsError, RuntimeError) as e:
+    except (TTSError, PexelsError, RuntimeError) as e:
         print(f"[Erro] {e}")
         sys.exit(1)
     print(f"\n[3/3] Pipeline concluído! Abra o arquivo '{caminho_saida}' para assistir.")
