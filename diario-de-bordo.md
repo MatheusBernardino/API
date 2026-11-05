@@ -93,7 +93,7 @@
 
 #### Semana de 06/11
 
-- **Quem trabalhou e quanto:** Matheus — 0h; Joab — 4h
+- **Quem trabalhou e quanto:** Matheus — 0h; Joab — 5h
 - **O que foi feito:**
   - Tratamento da falha do Edge TTS em `src/fala.py`: nova exceção `TTSError` com mensagem clara para 403, outros erros HTTP, erro de rede, timeout e áudio ausente, apagando o `.mp3` vazio ou incompleto; `src/main.py` passou a encerrar com código 1 nesses casos (Joab).
   - Testes automatizados da falha do TTS em `tests/test_tts.py` (6 testes, sem internet), somando 19 testes na suíte (Joab).
