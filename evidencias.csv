@@ -1,4 +1,4 @@
 data,tipo,indicador,canal,quem_de_fora,valor,descricao,arquivo
 2026-10-03,qualitativa,abordagem ao publico externo,email_e_dm,"@oLoboShortsBR, @seeanimais, @estranhascuriosidade",3,Envio de mensagens de abordagem e convite de teste aos criadores mapeados,evidencias/2026-10-03-dms_criador.pdf
-2026-10-16,contagem,total de visitantes unicos no repositorio,github,,3,Total de visitantes unicos acumuladas dos ultimos 14 dias no GitHub Insights Traffic,evidencias/2026-10-16-visitantes_github.png
-2026-10-30,contagem,total de visitantes unicos no repositorio,github,,1,Total de visitantes unicos acumuladas dos ultimos 14 dias no GitHub Insights Traffic,evidencias/2026-10-30-visitantes_github.png
+2026-10-16,contagem,total de visitantes unicos no repositorio,github,,3,Visitantes unicos dos ultimos 14 dias ate a data do print (GitHub Insights Traffic),evidencias/2026-10-16-visitantes_github.png
+2026-10-30,contagem,total de visitantes unicos no repositorio,github,,1,Visitantes unicos dos ultimos 14 dias ate a data do print (GitHub Insights Traffic),evidencias/2026-10-30-visitantes_github.png
