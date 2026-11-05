@@ -146,7 +146,8 @@ Equipe do Projeto (UFC - CC0464):
 | Número que aparece no material | Fonte | Como foi calculado |
 | :-- | :-- | :-- |
 | per_page: 2 (vídeos) / 4 (fotos) | API do Pexels | Parâmetro de requisição HTTP configurado nos scripts de teste |
-| Tempo limite (timeout de 10s) | httpx | Parâmetro de tolerância máxima definido nas chamadas de rede |
+| Tempo limite de 10s | httpx | Parâmetro `timeout=10.0` dos scripts de teste (`src/teste_pexels.py`) |
+| Tempos limite de 5s, 15s e 60s | requests | Conexão, busca e download do Pexels no pipeline (`src/material.py`) |
 
 ## Como adaptar para outro contexto
 Para adaptar o projeto para outro nicho de conteúdo ou canal:
