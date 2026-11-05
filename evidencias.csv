@@ -1,15 +1,4 @@
 data,tipo,indicador,canal,quem_de_fora,valor,descricao,arquivo
-2026-09-25,contagem,execucao de testes,terminal,,1,Teste executado das APIs Edge TTS e Pexels com retorno HTTP 200,evidencias/2026-09-25-execucao-terminal.png 
-2026-09-25,contagem,sintese de audio,script_python,,1,Arquivo de audio MP3 gerado via Edge TTS,evidencias/2026-09-25-teste-audio-edgetts.mp3
-2026-09-25,contagem,sintese de video,script_python,,1,Arquivo de video MP4 gerado via Pexels API,evidencias/2026-09-25-teste-pexels-video.mp4
-2026-09-25,contagem,sintese de imagem,script_python,,1,Arquivo de imagem PNG gerado via Pexels API,evidencias/2026-09-25-teste-pexels-imagem-id-4900859.png
-2026-09-25,contagem,sintese de imagem,script_python,,1,Arquivo de imagem JPEG gerado via Pexels API,evidencias/2026-09-25-teste-pexels-imagem-id-9784238.jpeg
-2026-10-01,contagem,execucao de testes,script_python,,1,Video gerado no teste do pipeline principal a partir da sintese de audio e imagens,evidencias/2026-10-01-video_teste_resultado.mp4
-2026-10-01,contagem,execucao de testes,terminal,,1,Teste executado no terminal do pipeline principal,evidencias/2026-10-01-execucao_teste_pipeline_terminal.png
-2026-10-02,contagem,execucao de testes,script_python,,1,Video gerado no teste do pipeline principal integrado ao gerador de roteiro,evidencias/2026-10-02-video_resultado_marco01.mp4
-2026-10-02,contagem,execucao de testes,terminal,,1,Teste executado no terminal do pipeline principal integrado ao gerador de roteiro,evidencias/2026-10-02-execucao_video_marco01_terminal.png
-2026-10-02,contagem,total de visualizacoes no repositorio,github,,191,Total de visualizacoes acumuladas no periodo de 14 dias registradas no GitHub Insights Traffic,evidencias/2026-10-02-acessos_github.png
 2026-10-03,qualitativa,abordagem ao publico externo,email_e_dm,"@oLoboShortsBR, @seeanimais, @estranhascuriosidade",3,Envio de mensagens de abordagem e convite de teste aos criadores mapeados,evidencias/2026-10-03-dms_criador.pdf
-2026-10-11,contagem,execucao de testes,terminal,,13,Execucao de 13 testes automatizados de falhas e timeouts via pytest com 100% de sucesso,evidencias/2026-10-11-execucao_pytest.png
 2026-10-16,contagem,total de visitantes unicos no repositorio,github,,3,Total de visitantes unicos acumuladas dos ultimos 14 dias no GitHub Insights Traffic,evidencias/2026-10-16-visitantes_github.png
 2026-10-30,contagem,total de visitantes unicos no repositorio,github,,1,Total de visitantes unicos acumuladas dos ultimos 14 dias no GitHub Insights Traffic,evidencias/2026-10-30-visitantes_github.png
