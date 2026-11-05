@@ -87,3 +87,19 @@
 - **Contato com o público:** Nenhum contato nesta semana.
 - **Evidência coletada:** Captura da tela de tráfego quinzenal em `evidencias/2026-10-30-visitantes_github.png` (1 visitante único nos últimos 14 dias), registrada no `evidencias.csv`.
 - **Próxima semana:** Implementar o tratamento de falha 403 do Edge TTS em `src/fala.py` (evitando arquivo `.mp3` vazio), limpar linhas de execução de teste do `evidencias.csv` (mantendo apenas indicadores do Campo 7) e preparar a entrega do Marco 2.
+
+
+---
+
+#### Semana de 06/11
+
+- **Quem trabalhou e quanto:** Matheus — 0h; Joab — 4h
+- **O que foi feito:**
+  - Tratamento da falha do Edge TTS em `src/fala.py`: nova exceção `TTSError` com mensagem clara para 403, outros erros HTTP, erro de rede, timeout e áudio ausente, apagando o `.mp3` vazio ou incompleto; `src/main.py` passou a encerrar com código 1 nesses casos (Joab).
+  - Testes automatizados da falha do TTS em `tests/test_tts.py` (6 testes, sem internet), somando 19 testes na suíte (Joab).
+  - Correção do `README.md`: linha do Edge TTS na tabela de falhas e tabela de procedência dos timeouts, separando o 10s dos scripts de teste dos 5s, 15s e 60s do `src/material.py` (Joab).
+  - Limpeza do `evidencias.csv`, mantendo só os indicadores do Campo 7 (visitantes únicos e abordagem ao público externo) e ajuste da descrição dos visitantes únicos (Joab).
+- **Obstáculo:** Nenhum obstáculo técnico enfrentado nesta semana.
+- **Contato com o público:** Nenhum contato nesta semana.
+- **Evidência coletada:** Execução da suíte completa com `python3 -m pytest -v`, mostrando os 19 testes aprovados (13 de `tests/test_falhas.py` e 6 de `tests/test_tts.py`) em `evidencias/2026-11-06-execucao_pytest.png`; e execução de `python src/main.py` que para na primeira falha com a mensagem "GEMINI_API_KEY inválida ou sem permissão. Confira o arquivo .env." em `evidencias/2026-11-06-execucao_chave_gemini_invalida_terminal.png`.
+- **Próxima semana:** Coletar o print de visitantes únicos em 13/11 e registrar no `evidencias.csv`; fechar a ficha do Marco 2 com o SHA do commit e pontos de 0,5 em 0,5.
