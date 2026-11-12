@@ -27,7 +27,7 @@
   - Higienização e reestruturação do `evidencias.csv` (mantendo estritamente os indicadores do Campo 7), comprovação visual do 3º criador (`@oLoboShortsBR`) em `evidencias/2026-10-03-dms_criador.pdf` e rotina quinzenal de captura de visitantes únicos (16/10, 30/10 e 13/11).
   - Correção da tabela de procedência de timeouts no `README.md` (diferenciando os 10s de `src/teste_pexels.py` dos 5s, 15s e 60s de `src/material.py`) e expurgo definitivo de caches órfãos junto ao suporte do GitHub.
 - **Foi cortado, e por quê:**
-  - Foi descartada a ideia de criar uma interface gráfica dedicada (GUI desktop/web própria), mantendo o foco no terminal + notebook interativo no Google Colab, pois o escopo da Trilha B (guia e tutorial prático de APIs) é melhor atendido por um ambiente em nuvem pronto para uso do que por uma interface local que exigiria instalação adicional pelo público-alvo.
+  - Nenhum recurso técnico do guia foi cortado; na documentação e rastreabilidade, foram cortadas as 10 linhas de registros de execução de testes locais do `evidencias.csv` (pois execução de teste interno não é indicador de alcance do Campo 7) e a métrica antiga de visualizações totais (`Total Views`), substituída pela medição de visitantes únicos (`Unique Visitors`).
 
 ---
 
