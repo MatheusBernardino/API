@@ -1,6 +1,7 @@
 import asyncio
 import os
 import re
+import shutil
 import sys
 from datetime import datetime
 import logging
@@ -159,7 +160,8 @@ async def main():
             caminho_saida=caminho_saida,
             pasta_execucao=pasta_execucao,
         )
-    except (TTSError, PexelsError, RuntimeError) as e:
+    except (TTSError, PexelsError, RuntimeError, OSError) as e:
+        shutil.rmtree(pasta_execucao, ignore_errors=True)
         print(f"[Erro] {e}")
         sys.exit(1)
     print(f"\n[3/3] Pipeline concluído! Abra o arquivo '{caminho_saida}' para assistir.")

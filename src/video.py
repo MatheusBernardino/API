@@ -5,6 +5,24 @@ from moviepy import (
     concatenate_videoclips,
     vfx,
 )
+import moviepy.video.io.ffmpeg_reader as _ffmpeg_reader
+
+""" Contorna bug do MoviePy 2.x com FFmpeg 7+ quando o vídeo do Pexels possui
+ linhas 'Stream group #0:0' (câmeras Fujifilm/Sony), evitando AttributeError.
+"""
+_orig_parse = _ffmpeg_reader.FFmpegInfosParser.parse
+
+
+def _safe_parse(self):
+    self.infos = "\n".join(
+        line
+        for line in self.infos.splitlines()
+        if not line.lstrip().startswith("Stream group ")
+    )
+    return _orig_parse(self)
+
+
+_ffmpeg_reader.FFmpegInfosParser.parse = _safe_parse
 
 
 def ajusta_video_e_audio(
