@@ -103,3 +103,18 @@
 - **Contato com o público:** Nenhum contato nesta semana.
 - **Evidência coletada:** Execução da suíte completa com `python3 -m pytest -v`, mostrando os 19 testes aprovados (13 de `tests/test_falhas.py` e 6 de `tests/test_tts.py`) em `evidencias/2026-11-06-execucao_pytest.png`; e execução de `python src/main.py` que para na primeira falha com a mensagem "GEMINI_API_KEY inválida ou sem permissão. Confira o arquivo .env." em `evidencias/2026-11-06-execucao_chave_gemini_invalida_terminal.png`.
 - **Próxima semana:** Coletar o print de visitantes únicos em 13/11 e registrar no `evidencias.csv`; fechar a ficha do Marco 2 com o SHA do commit e pontos de 0,5 em 0,5.
+
+---
+
+#### Semana de 13/11
+
+- **Quem trabalhou e quanto:** Matheus — 2h; Joab — 1h
+- **O que foi feito:**
+  - Redação da ficha de entrega `marco-2.md` e revisão dos itens de escopo, cortes e autopontuação da equipe (Matheus).
+  - Revisão do Campo 2 e Campo 4 do `marco-2.md`, separando os entregáveis do Marco 1 e detalhando os commits de cada melhoria do Marco 2 (Joab).
+  - Coleta do print quinzenal de tráfego na terceira data fixa estipulada (`evidencias/2026-11-13-visitantes_github.png`) e registro de 2 visitantes únicos no `evidencias.csv` (Matheus).
+  - Correção de compatibilidade do parser do MoviePy 2.x com FFmpeg 7+ em `src/video.py` (ignorando linhas `Stream group` de vídeos do Pexels) e limpeza automática da subpasta de execução em `src/main.py` caso ocorra falha no meio do pipeline (Matheus).
+- **Obstáculo:** Falha no parser do MoviePy (`AttributeError` em `ffmpeg_reader.py`) ao abrir vídeos do Pexels contendo metadados `Stream group #0:0` no FFmpeg 7+; custou ~1h de diagnóstico e teste local. Resolvido filtrando a linha no parser em `src/video.py` e removendo a pasta temporária incompleta em caso de erro em `src/main.py`.
+- **Contato com o público:** Nenhum retorno recebido dos 3 criadores abordados até o fechamento do Marco 2; planejada nova rodada de abordagem direta com envio do link do Google Colab para o Marco 3.
+- **Evidência coletada:** Captura da tela de tráfego quinzenal em `evidencias/2026-11-13-visitantes_github.png` (2 visitantes únicos nos últimos 14 dias), registrada no `evidencias.csv`.
+- **Próxima semana:** Realizar nova rodada de abordagem ao público externo com foco no uso via Google Colab e acompanhar feedbacks para o Marco 3 (27/11).
