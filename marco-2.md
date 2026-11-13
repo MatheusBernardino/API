@@ -21,11 +21,12 @@
 ## Campo 2 — O que mudou desde o marco anterior
 
 - **Passou a existir:**
-  - Tratamento completo de falhas no módulo de voz (`src/fala.py`) com a exceção `TTSError`: falhas HTTP (como erro 403 do Edge TTS), queda de rede, timeout ou resposta vazia agora exibem mensagem clara, apagam qualquer arquivo `.mp3` vazio/incompleto residual e encerram o `src/main.py` com código de saída `1`.
-  - Suíte expandida para **19 testes unitários** com `pytest` (`tests/test_falhas.py` com 13 testes + `tests/test_tts.py` com 6 novos testes para o Edge TTS).
-  - Ambiente interativo no **Google Colab** linkado com badge no `README.md` para permitir que criadores de conteúdo testem a ferramenta sem configurar Python ou FFmpeg localmente.
-  - Higienização e reestruturação do `evidencias.csv` (mantendo estritamente os indicadores do Campo 7), comprovação visual do 3º criador (`@oLoboShortsBR`) em `evidencias/2026-10-03-dms_criador.pdf` e rotina quinzenal de captura de visitantes únicos (16/10, 30/10 e 13/11).
-  - Correção da tabela de procedência de timeouts no `README.md` (diferenciando os 10s de `src/teste_pexels.py` dos 5s, 15s e 60s de `src/material.py`) e expurgo definitivo de caches órfãos junto ao suporte do GitHub.
+  - Tratamento completo de falhas no módulo de voz (`src/fala.py`) com a exceção `TTSError`: falhas HTTP (como erro 403 do Edge TTS), queda de rede, timeout ou resposta vazia agora exibem mensagem clara, apagam qualquer arquivo `.mp3` vazio/incompleto residual e encerram o `src/main.py` com código de saída `1` (commits `bcf2055` e `455a338`, semana de 06/11).
+  - Suíte expandida para **19 testes unitários** com `pytest` (`tests/test_falhas.py` com 13 testes, já entregues no Marco 1, + `tests/test_tts.py` com 6 novos testes para o Edge TTS, commit `08108b3`). Evidência: `evidencias/2026-11-06-execucao_pytest.png`.
+  - Atualização das dependências (`edge-tts>=7.3.1` e `aiohttp>=3.9.0` no `requirements.txt`, commit `0d44658`) para corrigir o erro 403 do Edge TTS.
+  - Higienização e reestruturação do `evidencias.csv` (mantendo estritamente os indicadores do Campo 7, commits `867c4f5` e `6d81704`), comprovação visual do 3º criador (`@oLoboShortsBR`) em `evidencias/2026-10-03-dms_criador.pdf` (semana de 23/10) e rotina quinzenal de captura de visitantes únicos (16/10, 30/10 e 13/11).
+  - Correção da tabela de procedência de timeouts no `README.md` (diferenciando os 10s de `src/teste_pexels.py` dos 5s, 15s e 60s de `src/material.py`, commit `14f2e5e`) e linha do erro do Edge TTS na tabela de falhas (commit `b32d6fd`).
+- **Já existia no Marco 1 e foi mantido (não conta como novo):** o ambiente no Google Colab com badge no `README.md`, a licença MIT, os 13 testes de `tests/test_falhas.py`, o `.gitignore` de caches (`.pytest_cache/`) e a remoção de dados pessoais do histórico do Git, todos concluídos até 11/10 (commit `340b4b8`; tag `marco-1` em `92b09e9`).
 - **Foi cortado, e por quê:**
   - Nenhum recurso técnico do guia foi cortado; na documentação e rastreabilidade, foram cortadas as 10 linhas de registros de execução de testes locais do `evidencias.csv` (pois execução de teste interno não é indicador de alcance do Campo 7) e a métrica antiga de visualizações totais (`Total Views`), substituída pela medição de visitantes únicos (`Unique Visitors`).
 
@@ -46,7 +47,7 @@
 
 - **Obstáculo:** Bloqueio intermitente (erro HTTP 403) no serviço gratuito do Microsoft Edge TTS devido à desatualização de tokens na versão anterior da biblioteca `edge-tts`, que fazia o script falhar com traceback bruto e deixar um arquivo `.mp3` de 0 bytes na pasta da cena.
 - **Tempo custado:** Cerca de 3 horas entre diagnóstico, atualização de dependências e escrita dos mocks de teste.
-- **O que fizemos a respeito:** Atualizamos a dependência para `edge-tts>=7.2.7` (com `aiohttp>=3.9.0`), implementamos a exceção `TTSError` em `src/fala.py` que remove automaticamente arquivos `.mp3` vazios/corrompidos em caso de erro e criamos 6 testes unitários em `tests/test_tts.py` simulando erro 403, falha de rede e áudio vazio.
+- **O que fizemos a respeito:** Atualizamos a dependência para `edge-tts>=7.3.1` (com `aiohttp>=3.9.0`), implementamos a exceção `TTSError` em `src/fala.py` que remove automaticamente arquivos `.mp3` vazios/corrompidos em caso de erro e criamos 6 testes unitários em `tests/test_tts.py` simulando erro 403, falha de rede e áudio vazio.
 
 ---
 
