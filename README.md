@@ -14,6 +14,8 @@ Dispensa configuração de ambiente local. Clique abaixo para testar diretamente
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/14Ck-v9NyS3qpsbuRZjD2pew3ZHHVVgbE?usp=sharing)
 
+- **Testou o projeto?** [Deixe seu feedback rápido (1 minuto) neste formulário](https://docs.google.com/forms/d/e/1FAIpQLSdDgWHCNhalAWK1lg2TQEaMl8hI2CLetXdVdYs-TLKJCE0npA/viewform).
+
 ## Como usar
 Passo a passo para clonar e executar os testes na sua máquina:
 
