@@ -4,3 +4,4 @@ data,tipo,indicador,canal,quem_de_fora,valor,descricao,arquivo
 2026-10-23,qualitativa,abordagem ao publico externo,comentario_youtube,@oLoboShortsBR,1,Envio de comentario de abordagem e convite de teste ao terceiro criador mapeado (pagina 3),evidencias/2026-10-03-dms_criador.pdf
 2026-10-30,contagem,total de visitantes unicos no repositorio,github,,1,Visitantes unicos dos ultimos 14 dias ate a data do print (GitHub Insights Traffic),evidencias/2026-10-30-visitantes_github.png
 2026-11-13,contagem,total de visitantes unicos no repositorio,github,,2,Visitantes unicos dos ultimos 14 dias ate a data do print (GitHub Insights Traffic),evidencias/2026-11-13-visitantes_github.png
+2026-11-19,qualitativa,abordagem ao publico externo,dm_e_whatsapp,"@seeanimais, @estranhascuriosidade, grupo Alunos IUV0005 2026.2",3,Nova rodada de abordagem enviando link direto do Google Colab (com modo demonstracao) e formulario de feedback,evidencias/2026-11-19-rodada_abordagem_colab.pdf
