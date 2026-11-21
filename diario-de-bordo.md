@@ -88,7 +88,6 @@
 - **Evidência coletada:** Captura da tela de tráfego quinzenal em `evidencias/2026-10-30-visitantes_github.png` (1 visitante único nos últimos 14 dias), registrada no `evidencias.csv`.
 - **Próxima semana:** Implementar o tratamento de falha 403 do Edge TTS em `src/fala.py` (evitando arquivo `.mp3` vazio), limpar linhas de execução de teste do `evidencias.csv` (mantendo apenas indicadores do Campo 7) e preparar a entrega do Marco 2.
 
-
 ---
 
 #### Semana de 06/11
@@ -118,3 +117,19 @@
 - **Contato com o público:** Nenhum retorno recebido dos 3 criadores abordados até o fechamento do Marco 2; planejada nova rodada de abordagem direta com envio do link do Google Colab para o Marco 3.
 - **Evidência coletada:** Captura da tela de tráfego quinzenal em `evidencias/2026-11-13-visitantes_github.png` (2 visitantes únicos nos últimos 14 dias), registrada no `evidencias.csv`.
 - **Próxima semana:** Realizar nova rodada de abordagem ao público externo com foco no uso via Google Colab e acompanhar feedbacks para o Marco 3 (27/11).
+
+---
+
+#### Semana de 20/11
+
+- **Quem trabalhou e quanto:** Matheus — 3h; Joab — 1h
+- **O que foi feito:**
+  - Reunião de alinhamento da equipe para análise da devolutiva do Marco 2, discussão da estratégia de facilitação do uso via Google Colab e definição das perguntas do formulário de feedback e novos canais de divulgação (Matheus e Joab).
+  - Criação de formulário de avaliação rápida no Google Forms (4 perguntas) e inclusão do link no `README.md` e no notebook do Google Colab (Matheus).
+  - Aprimoramento do notebook do Google Colab com links diretos de 1 clique para criação de chaves gratuitas, inclusão de "Modo Demonstração Rápida" (que permite gerar vídeos de teste sem necessidade de `GEMINI_API_KEY`) e download automático do `creditos.txt` junto ao `video_final.mp4` (Matheus).
+  - Separação das datas de abordagem dos criadores no `evidencias.csv` (`03/10` para os dois primeiros via DM e `23/10` para o terceiro via comentário no YouTube), atendendo ao apontamento da avaliação do Marco 2 (Matheus).
+  - Nova rodada de contato com o público externo enviando o link direto do Google Colab e do formulário de feedback para `@seeanimais`, `@estranhascuriosidade` e para o grupo de estudantes da UFC `Alunos IUV0005 2026.2` (Matheus).
+- **Obstáculo:** O canal `@oLoboShortsBR`, que também deveria ser reabordado nesta rodada, não disponibiliza canal de contato direto (como e-mail ou perfil no Instagram), restando apenas a seção pública de comentários dos vídeos no YouTube; por ser um meio de baixa visibilidade para mensagens com múltiplos links, optou-se por não contatá-lo novamente por essa via e expandir a divulgação para o grupo `Alunos IUV0005 2026.2`.
+- **Contato com o público:** Reabordagem via DM no Instagram/TikTok aos canais `@seeanimais` e `@estranhascuriosidade` e divulgação no grupo de WhatsApp `Alunos IUV0005 2026.2`, com link direto para teste no Google Colab e formulário de avaliação.
+- **Evidência coletada:** Capturas das novas abordagens consolidadas em `evidencias/2026-11-19-rodada_abordagem_colab.pdf` e registradas no `evidencias.csv`.
+- **Próxima semana:** Coletar as respostas recebidas no formulário de feedback(dia 22/11 e nas semanas seguintes) e o 4º print quinzenal de visitantes únicos (27/11) para consolidar a entrega do Marco 3.
